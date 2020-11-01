@@ -2,16 +2,7 @@
   <header class="Blog-header">
     <div class="Vlt-header">
       <NLink :to="localePath('index')" no-prefetch class="Vlt-header__logo">
-        <img
-          class="Vlt-M-plus"
-          src="../node_modules/@vonagevolta/volta2/images/logos/Vonage-wordmark.svg"
-          :alt="$t('component_header_strapline')"
-        />
-        <img
-          class="Vlt-S-only"
-          src="../node_modules/@vonagevolta/volta2/images/logos/Vonage-lettermark.svg"
-          :alt="$t('component_header_strapline')"
-        />
+        Vonage-wordmark.svg Vonage-lettermark.svg
         <div
           class="Vlt-badge Vlt-M-plus Vlt-badge--small Vlt-badge--transparent"
           style="margin: 8px"
@@ -67,14 +58,7 @@
           class="Vlt-btn Vlt-btn--small Vlt-btn--white"
           @click="isOpen = !isOpen"
         >
-          <svg>
-            <image
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              xlink:href="../node_modules/@vonagevolta/volta2/images/icons/Vlt-icon-menu.svg"
-            />
-          </svg>
+          Vlt-icon-menu
         </a>
       </div>
     </div>

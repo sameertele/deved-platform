@@ -4,11 +4,7 @@
     to=""
     class="Back-to-top Vlt-btn Vlt-btn--primary Vlt-btn--icon"
   >
-    <svg class="Vlt-icon Vlt-icon--large Vlt-white">
-      <use
-        xlink:href="../../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-arrow-thin-up"
-      />
-    </svg>
+    Vlt-icon-arrow-thin-up
   </nuxt-link>
 </template>
 

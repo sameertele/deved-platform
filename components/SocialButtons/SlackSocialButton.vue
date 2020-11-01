@@ -7,14 +7,7 @@
     target="_blank"
     rel="noreferrer"
   >
-    <svg>
-      <image
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        xlink:href="../../node_modules/@vonagevolta/volta2/images/brand-icons/Brand-icon-slack-color.svg"
-      />
-    </svg>
+    Brand-icon-slack-color.svg
     <slot />
   </a>
 </template>

@@ -44,11 +44,7 @@
                           <button
                             class="Vlt-btn Vlt-btn--white Vlt-btn--icon Vlt-btn--large"
                           >
-                            <svg>
-                              <use
-                                xlink:href="../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-search"
-                              />
-                            </svg>
+                            Vlt-icon-search
                           </button>
                         </div>
                       </div>

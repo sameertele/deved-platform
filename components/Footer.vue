@@ -171,11 +171,7 @@
                 :title="$t('component_footer_rssfeed')"
                 class=""
               >
-                <svg class="Vlt-icon Vlt-icon--smaller Vlt-white">
-                  <use
-                    xlink:href="../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-rss"
-                  />
-                </svg>
+                Vlt-icon-rss
               </a>
             </li>
           </ul>

@@ -13,11 +13,7 @@
             class="Blog-truncate"
             :class="{ 'Vlt-title--icon': post.redirect }"
           >
-            <svg v-if="post.redirect">
-              <use
-                xlink:href="../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-open-full"
-              />
-            </svg>
+            Vlt-icon-open-full
             {{ post.title | truncate(73, '...') }}
           </h2>
         </NLink>

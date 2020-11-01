@@ -7,11 +7,7 @@
     target="_blank"
     rel="noreferrer"
   >
-    <svg class="Vlt-icon Vlt-white">
-      <use
-        xlink:href="../../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-rss"
-      />
-    </svg>
+    Vlt-icon-rss
     <slot />
   </a>
 </template>

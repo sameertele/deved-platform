@@ -3,11 +3,7 @@
     <div class="Blog-hero__content">
       <h3>
         {{ $t('component_search_hero_title') }}
-        <img
-          src="../node_modules/@vonagevolta/volta2/images/logos/Vonage-wordmark.svg"
-          alt="Vonage"
-          class="Logo__inline"
-        />
+        Vonage-wordmark.svg
       </h3>
       <form class="Blog-form__block" @submit.prevent="search()">
         <div class="Vlt-form__element Vlt-form__element--big">
@@ -28,11 +24,7 @@
                 type="submit"
                 class="Vlt-btn Vlt-btn--white Vlt-btn--icon Vlt-btn--large"
               >
-                <svg>
-                  <use
-                    xlink:href="../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-search"
-                  />
-                </svg>
+                Vlt-icon-search
               </button>
             </div>
           </div>
