@@ -46,13 +46,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-    '@vonagevolta/volta2/dist/css/volta.min.css',
-    '@vonagevolta/volta2/dist/css/volta-error-page.min.css',
-    '@vonagevolta/volta2/dist/css/volta-templates.min.css',
-    '@/assets/css/volta-prism-dark.css',
-    '@/assets/css/main.css',
-  ],
+  css: ['@/assets/css/custom-prism-dark.css', '@/assets/css/main.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
