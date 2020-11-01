@@ -33,6 +33,7 @@
     "netlify-plugin-opensearch": "^1.0.4",
     "nuxt": "^2.14.7",
     "nuxt-i18n": "^6.15.4",
+    "prismjs": "^1.22.0",
     "reading-time": "^1.2.0",
     "showdown": "^1.9.1",
     "slugify": "^1.4.5",
