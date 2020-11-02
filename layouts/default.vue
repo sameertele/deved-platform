@@ -1,5 +1,5 @@
 <template>
-  <div class="Vlt-template Vlt-bg-grey-lighter">
+  <div class="bg-grey-lighter">
     <Header />
     <Nuxt />
     <Footer />
@@ -12,7 +12,7 @@ export default {
     if (process.client) {
       this.log(
         `%c${this.$t('layout_default_careers_title')}`,
-        'font-family: Gill Sans, sans-serif; font-size: 40px; color: #dd0d00'
+        'font-family: Gill Sans, sans-serif; font-size: 40px; color: #e84545'
       )
       this.log(
         `%c${this.$t('layout_default_careers_body')}`,
