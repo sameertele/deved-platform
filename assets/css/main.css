@@ -1,3 +1,51 @@
 div.nuxt-progress {
   background: linear-gradient(to right, #7fc6f4, #d5279b);
 }
+
+.badge {
+  @apply font-semibold;
+  @apply px-3;
+  @apply rounded-full;
+  @apply text-sm;
+  @apply bg-grey-light;
+  @apply text-grey-darker;
+}
+
+.badge--small {
+  @apply px-2;
+  @apply text-xs;
+}
+
+.badge--large {
+  @apply px-4;
+  @apply text-base;
+}
+
+.badge--purple {
+  @apply bg-purple-lighter;
+  @apply text-purple-dark;
+}
+
+.button {
+  @apply font-bold;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded;
+  @apply bg-grey-light;
+  @apply text-grey-darker;
+}
+
+.button select {
+  @apply font-bold;
+  @apply pr-8;
+  @apply bg-transparent;
+  @apply appearance-none;
+}
+
+.button--pill {
+  @apply rounded-full;
+}
+
+.button--small {
+  @apply text-xs;
+}
