@@ -1,109 +1,195 @@
 <template>
-  <header class="Blog-header">
-    <div class="Vlt-header">
-      <NLink :to="localePath('index')" no-prefetch class="Vlt-header__logo">
-        Vonage-wordmark.svg Vonage-lettermark.svg
-        <div
-          class="Vlt-badge Vlt-M-plus Vlt-badge--small Vlt-badge--transparent"
-          style="margin: 8px"
-        >
-          {{ $t('component_header_badge') }}
+  <nav class="bg-white">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-items-end">
+          <div class="flex flex-shrink-0">
+            <img
+              class="h-6"
+              src="@/assets/images/vonage/wordmark.svg"
+              :alt="$t('component_header_badge')"
+            />
+          </div>
+          <span class="ml-4 badge badge--small badge--purple">{{
+            $t('component_header_badge')
+          }}</span>
         </div>
-        <div
-          class="Vlt-badge Vlt-S-only Vlt-badge--small Vlt-badge--transparent"
-          style="margin: 8px"
-        >
-          {{ $t('component_header_badge') }}
-        </div>
-      </NLink>
-      <div class="Vlt-header__menu Vlt-header__menu--right Vlt-M-plus">
-        <div class="Vlt-native-dropdown Vlt-native-dropdown--small">
-          <select
-            v-model="selectedLocale"
-            @change="switchLocale(selectedLocale)"
-          >
-            <option :value="currentLocale.code" selected="selected">
-              {{ currentLocale.name }}
-            </option>
-            <option
-              v-for="(locale, index) in availableLocales"
-              :key="index"
-              :value="locale.code"
+        <div class="hidden md:block">
+          <div class="flex items-baseline ml-10 space-x-4">
+            <div
+              class="relative inline-block button button--pill button--small"
             >
-              {{ locale.name }}
-            </option>
-          </select>
-        </div>
+              <select
+                v-model="selectedLocale"
+                @change="switchLocale(selectedLocale)"
+              >
+                <option :value="currentLocale.code" selected="selected">
+                  {{ currentLocale.name }}
+                </option>
+                <option
+                  v-for="(locale, index) in availableLocales"
+                  :key="index"
+                  :value="locale.code"
+                >
+                  {{ locale.name }}
+                </option>
+              </select>
+              <div
+                class="absolute inset-y-0 flex items-center px-2 text-gray-700 pointer-events-none right-4"
+              >
+                <svg
+                  class="w-4 h-4 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+            </div>
 
-        <SlackSocialButton
-          link="https://developer.nexmo.com/community/slack"
-          class="Vlt-btn--small"
-        >
-          {{ $t('component_header_slack_button') }}
-        </SlackSocialButton>
-        <TwitterSocialButton
-          link="https://twitter.com/VonageDev"
-          class="Vlt-btn--small"
-        />
-        <a
-          href="https://dashboard.nexmo.com/sign-up?utm_source=blog&utm_medium=deved&utm_campaign=sign-up-link"
-          class="Vlt-btn Vlt-btn--small Vlt-btn--secondary"
-          rel="noreferrer"
-          >{{ $t('component_header_signup_button') }}</a
-        >
-      </div>
-      <div class="Vlt-header__menu Vlt-header__menu--right Vlt-S-only">
-        <a
-          href="#"
-          class="Vlt-btn Vlt-btn--small Vlt-btn--white"
-          @click="isOpen = !isOpen"
-        >
-          Vlt-icon-menu
-        </a>
+            <a
+              class="button button--pill button--small"
+              href="https://developer.nexmo.com/community/slack"
+              >{{ $t('component_header_slack_button') }}</a
+            >
+
+            <a
+              class="button button--pill button--small"
+              href="https://twitter.com/VonageDev"
+              >Twitter</a
+            >
+
+            <a
+              class="button button--pill button--small"
+              href="https://dashboard.nexmo.com/sign-up?utm_source=blog&utm_medium=deved&utm_campaign=sign-up-link"
+              >{{ $t('component_header_signup_button') }}</a
+            >
+          </div>
+        </div>
+        <div class="flex -mr-2 md:hidden">
+          <!-- Mobile menu button -->
+          <button
+            class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
+            @click="isOpen = !isOpen"
+          >
+            <!-- Menu open: "hidden", Menu closed: "block" -->
+            <svg
+              class="block w-6 h-6"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <!-- Menu open: "block", Menu closed: "hidden" -->
+            <svg
+              class="hidden w-6 h-6"
+              stroke="currentColor"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
-    <nav
-      class="Blog-nav Blog-nav__elevation--1"
+
+    <!--
+      Mobile menu, toggle classes based on menu state.
+
+      Open: "block", closed: "hidden"
+    -->
+    <div
+      class="md:hidden"
       :class="{
-        'Blog-nav__expandable': !isOpen,
+        'hidden ': !isOpen,
       }"
     >
-      <ul class="Blog-nav__list">
-        <li class="Blog-nav__item Vlt-center">
-          <SlackSocialButton link="https://developer.nexmo.com/community/slack">
-            {{ $t('component_header_slack_button') }}
-          </SlackSocialButton>
-        </li>
-        <li class="Blog-nav__item Vlt-center">
-          <a
-            href="https://dashboard.nexmo.com/sign-up?utm_source=blog&utm_medium=deved&utm_campaign=sign-up-link"
-            class="Vlt-btn Vlt-btn--secondary Vlt-text-white"
-            rel="noreferrer"
-            >{{ $t('component_header_signup_button') }}</a
-          >
-        </li>
-        <li class="Blog-nav__item Vlt-center">
-          <TwitterSocialButton link="https://twitter.com/VonageDev">
-            {{ $t('component_header_follow_button') }}
-          </TwitterSocialButton>
-        </li>
-        <li class="Blog-nav__item Vlt-center">
-          <nuxt-link :to="switchLocalePath(currentLocale.code)">
-            &gt; {{ currentLocale.name }} &lt;
-          </nuxt-link>
-        </li>
-        <li
-          v-for="(locale, index) in availableLocales"
-          :key="index"
-          class="Blog-nav__item Vlt-center"
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="https://developer.nexmo.com/community/slack"
+          class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          >{{ $t('component_header_slack_button') }}</a
         >
-          <nuxt-link :to="switchLocalePath(locale.code)">
+
+        <a
+          href="https://twitter.com/VonageDev"
+          class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          >Twitter</a
+        >
+
+        <a
+          href="https://dashboard.nexmo.com/sign-up?utm_source=blog&utm_medium=deved&utm_campaign=sign-up-link"
+          class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+          >{{ $t('component_header_signup_button') }}</a
+        >
+
+        <select v-model="selectedLocale" @change="switchLocale(selectedLocale)">
+          <option :value="currentLocale.code" selected="selected">
+            {{ currentLocale.name }}
+          </option>
+          <option
+            v-for="(locale, index) in availableLocales"
+            :key="index"
+            :value="locale.code"
+          >
             {{ locale.name }}
-          </nuxt-link>
-        </li>
-      </ul>
-    </nav>
-  </header>
+          </option>
+        </select>
+      </div>
+      <div class="pt-4 pb-3 border-t border-gray-700">
+        <div class="flex items-center px-5 space-x-3">
+          <div class="flex-shrink-0">
+            <img
+              class="w-10 h-10 rounded-full"
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+            />
+          </div>
+          <div class="space-y-1">
+            <div class="text-base font-medium leading-none text-white">
+              Tom Cook
+            </div>
+            <div class="text-sm font-medium leading-none text-gray-400">
+              tom@example.com
+            </div>
+          </div>
+        </div>
+        <div class="px-2 mt-3 space-y-1">
+          <a
+            href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+            >Your Profile</a
+          >
+
+          <a
+            href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+            >Settings</a
+          >
+
+          <a
+            href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+            >Sign out</a
+          >
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -131,183 +217,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Blog-header {
-  width: 100%;
-  min-height: 64px;
-  box-shadow: 0 4px 4px rgba(19, 20, 21, 0.1);
-  margin-bottom: 12px;
-}
-
-.Blog-nav {
-  transition: margin 700ms;
-  margin-top: 74px;
-}
-
-.Blog-nav__expandable {
-  margin-top: calc(-100%);
-}
-
-.Blog-nav__list {
-  display: block;
-  margin-bottom: 12px;
-}
-
-.Blog-nav__item {
-  display: block;
-  font-size: 1.1em;
-  font-weight: 600;
-  line-height: 48px;
-  border-left: 5px solid white;
-}
-
-.Blog-nav__item .Vlt-btn {
-  width: 80vw;
-}
-
-@media only screen and (max-width: 575px) {
-  .Vlt-header__logo {
-    flex: 0 0 120px;
-  }
-}
-
-.Vlt-tabs__header {
-  border-bottom: none;
-}
-
-.Vlt-header__menu .Vlt-btn svg:only-child {
-  margin-right: 0;
-}
-
-.Vlt-tabs__link_active span {
-  background: 0 0;
-  color: #131415;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.Vlt-tabs__link:not(.Vlt-tabs__link_active) span {
-  font-size: 15px;
-  color: #616266;
-}
-
-@media only screen and (min-width: 768px) {
-  .Vlt-tabs__link:hover:not(.Vlt-tabs__link_active) span {
-    background: 0 0;
-    color: #131415;
-  }
-}
-
-.Vlt-tabs__link.Tabs__Node:after {
-  background: rgba(61, 136, 54, 0.5);
-}
-
-.Vlt-tabs__link_active.Tabs__Node:after {
-  background: rgb(61, 136, 54);
-}
-
-.Vlt-tabs__link.Tabs__DotNet:after {
-  background: rgba(93, 37, 144, 0.5);
-}
-
-.Vlt-tabs__link_active.Tabs__DotNet:after {
-  background: rgb(93, 37, 144);
-}
-
-.Vlt-tabs__link.Tabs__Ruby:after {
-  background: rgba(204, 52, 45, 0.5);
-}
-
-.Vlt-tabs__link_active.Tabs__Ruby:after {
-  background: rgb(204, 52, 45);
-}
-
-.Vlt-tabs__link.Tabs__Python:after {
-  background: rgba(30, 56, 187, 0.5);
-}
-
-.Vlt-tabs__link_active.Tabs__Python:after {
-  background: rgb(30, 56, 187);
-}
-
-.Vlt-tabs__link.Tabs__PHP:after {
-  background: rgba(35, 161, 170, 0.5);
-}
-
-.Vlt-tabs__link_active.Tabs__PHP:after {
-  background: rgb(35, 161, 170);
-}
-
-.Vlt-tabs__link.Tabs__Java:after {
-  background: rgba(1, 71, 110, 0.5);
-}
-
-.Vlt-tabs__link_active.Tabs__Java:after {
-  background: rgb(1, 71, 110);
-}
-
-.Vlt-header .Vlt-composite .Vlt-composite__prepend--icon {
-  padding: 8px 12px;
-}
-
-.Blog-search__form {
-  display: inline-block;
-  padding: 8px 0;
-}
-
-@media only screen and (max-width: 1099px) {
-  .Blog-search__form {
-    display: none !important;
-  }
-}
-
-.Blog-search__button {
-  display: none !important;
-}
-
-@media only screen and (max-width: 1099px) {
-  .Blog-search__button {
-    display: inline-block !important;
-  }
-}
-
-.Vlt-header .Vlt-composite input {
-  height: 32px;
-  border: none;
-  width: 150px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-.Vlt-header .Vlt-composite:hover input {
-  background: #d0d2d8;
-}
-
-.Vlt-header .Vlt-composite input:focus {
-  background: #fff;
-  border: 1px solid #c2c4cc;
-  width: 250px;
-}
-
-.Vlt-header .Vlt-composite input::-webkit-input-placeholder,
-.Vlt-header .Vlt-composite input::-moz-placeholder,
-.Vlt-header .Vlt-composite input::-ms-input-placeholder,
-.Vlt-header .Vlt-composite input::placeholder {
-  font-size: 12px;
-  font-weight: 600;
-  color: #131415;
-  line-height: 1.6rem;
-}
-
-.Vlt-native-dropdown--small {
-  margin-right: 8px;
-}
-.Vlt-native-dropdown--small select {
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  min-height: 32px;
-  min-width: 32px;
-}
-</style>
