@@ -1,27 +1,7 @@
 <template>
-<<<<<<< HEAD
-  <nuxt-link
-    v-show="showButton"
-    to=""
-    class="Back-to-top Vlt-btn Vlt-btn--primary Vlt-btn--icon"
-  >
-    Vlt-icon-arrow-thin-up
-  </nuxt-link>
-=======
   <transition name="fade">
-    <a
-      v-show="showButton"
-      href="#top"
-      class="Back-to-top Vlt-btn Vlt-btn--primary Vlt-btn--icon"
-    >
-      <svg class="Vlt-icon Vlt-icon--large Vlt-white">
-        <use
-          xlink:href="../../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-arrow-thin-up"
-        />
-      </svg>
-    </a>
+    <a v-show="showButton" href="#top" class="Back-to-top"> ^ </a>
   </transition>
->>>>>>> develop
 </template>
 
 <script>

@@ -24,8 +24,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        black: '#616266',
+        black: '#000000',
         white: '#ffffff',
+        brand: {
+          slack: '#4a154b',
+          twitter: '#1da1f2',
+          twitch: '#9146FF',
+          'twitch-bg': '#202024',
+        },
         orange: {
           lighter: '#fee3dd',
           light: '#fcac98',

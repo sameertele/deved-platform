@@ -27,19 +27,20 @@ div.nuxt-progress {
 }
 
 .button {
-  @apply font-bold;
+  @apply font-semibold;
   @apply py-2;
   @apply px-4;
   @apply rounded;
   @apply bg-grey-light;
-  @apply text-grey-darker;
+  @apply text-black;
+  @apply inline-flex;
+  @apply items-center;
 }
 
-.button select {
-  @apply font-bold;
-  @apply pr-8;
-  @apply bg-transparent;
+select.button {
+  @apply pr-10;
   @apply appearance-none;
+  @apply outline-none;
 }
 
 .button--pill {
@@ -48,4 +49,39 @@ div.nuxt-progress {
 
 .button--small {
   @apply text-xs;
+}
+
+.button--primary {
+  @apply bg-black;
+  @apply text-white;
+}
+
+.button--twitter {
+  @apply text-black;
+}
+
+.button--twitter svg {
+  @apply text-brand-twitter;
+}
+
+.button--slack {
+  @apply bg-brand-slack;
+  @apply text-white;
+}
+
+.button--twitch {
+  @apply bg-brand-twitch-bg;
+  @apply text-white;
+}
+
+.button--twitch svg {
+  @apply text-brand-twitch;
+}
+
+hr.button-spacer {
+  @apply inline-block;
+  @apply border-r;
+  @apply w-px;
+  @apply h-6;
+  @apply mt-1;
 }

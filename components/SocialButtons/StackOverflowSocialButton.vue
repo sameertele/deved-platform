@@ -7,14 +7,7 @@
     target="_blank"
     rel="noreferrer"
   >
-    <svg>
-      <image
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        xlink:href="../../assets/images/brand-icons/Brand-icon-stackoverflow-color.svg"
-      />
-    </svg>
+    Brand-icon-stackoverflow-color.svg
     <slot />
   </a>
 </template>
