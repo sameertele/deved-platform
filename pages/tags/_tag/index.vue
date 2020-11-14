@@ -2,14 +2,14 @@
   <section class="Blog__Full-width">
     <header class="Blog__Full-width">
       <PageHero class="Tag-hero">
-        <Tag :tag="tag" /> {{ $t('page_categorytag_title') }}
+        <Tag :tag="tag" />
       </PageHero>
     </header>
     <main class="Vlt-container">
       <div class="Vlt-grid">
         <div class="Vlt-col" />
-        <div v-if="routes" class="Vlt-col Vlt-col--2of3">
-          <Breadcrumbs :routes="routes" />
+        <div class="Vlt-col Vlt-col--2of3">
+          <Breadcrumbs />
         </div>
         <div class="Vlt-col" />
         <div class="Vlt-grid__separator" />
@@ -24,11 +24,15 @@ import config from '~/modules/config'
 
 export default {
   async asyncData({ $content, app, params, error }) {
+    const searchTags = config.tagMap[params.tag]
+      ? [params.tag, ...config.tagMap[params.tag]]
+      : [params.tag]
+
     try {
       const posts = await $content(`blog/${app.i18n.locale}`)
         .where({
           $and: [
-            { tags: { $contains: params.tag } },
+            { tags: { $containsAny: searchTags } },
             { published: { $ne: false } },
           ],
         })
@@ -43,13 +47,6 @@ export default {
       return {
         tag: params.tag,
         posts,
-        routes: [
-          {
-            route: `/tags/${params.tag}`,
-            title: `Tag: #${params.tag}`,
-            current: true,
-          },
-        ],
       }
     } catch (e) {
       return error(e)

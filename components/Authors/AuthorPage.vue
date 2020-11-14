@@ -34,7 +34,7 @@
       </div>
       <div class="Vlt-center">
         <TwitterSocialButton
-          :link="`https://twitter.com/${author.twitter}`"
+          :link="author.twitter ? `https://twitter.com/${author.twitter}` : ''"
           class="Vlt-btn--small"
         />
         <FacebookSocialButton
@@ -60,7 +60,7 @@
           class="Vlt-btn--small"
         />
         <RssSocialButton
-          :link="`/authors/${author.username}/rss.xml`"
+          :link="`/feeds/authors/${author.username}/rss.xml`"
           class="Vlt-btn--small"
         />
       </div>

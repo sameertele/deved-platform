@@ -174,6 +174,7 @@
             class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
             >Your Profile</a
           >
+<<<<<<< HEAD
 
           <a
             href="#"
@@ -190,6 +191,31 @@
       </div>
     </div>
   </nav>
+=======
+        </li>
+        <li class="Blog-nav__item Vlt-center">
+          <TwitterSocialButton link="https://twitter.com/VonageDev">
+            {{ $t('component_header_follow_button') }}
+          </TwitterSocialButton>
+        </li>
+        <li class="Blog-nav__item Vlt-center">
+          <a :href="switchLocalePath(currentLocale.code)">
+            &gt; {{ currentLocale.name }} &lt;
+          </a>
+        </li>
+        <li
+          v-for="(locale, index) in availableLocales"
+          :key="index"
+          class="Blog-nav__item Vlt-center"
+        >
+          <a :href="switchLocalePath(locale.code)">
+            {{ locale.name }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+>>>>>>> develop
 </template>
 
 <script>
@@ -212,7 +238,7 @@ export default {
 
   methods: {
     switchLocale(event) {
-      this.$router.replace(this.switchLocalePath(event))
+      window.location.href = this.switchLocalePath(event)
     },
   },
 }

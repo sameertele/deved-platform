@@ -6,8 +6,8 @@
     <main class="Vlt-container">
       <div class="Vlt-grid">
         <div class="Vlt-col" />
-        <div v-if="routes" class="Vlt-col Vlt-col--2of3">
-          <Breadcrumbs :routes="routes" />
+        <div class="Vlt-col Vlt-col--2of3">
+          <Breadcrumbs :title="author.name" />
         </div>
         <div class="Vlt-col" />
         <div class="Vlt-grid__separator" />
@@ -36,8 +36,7 @@ import config from '~/modules/config'
 export default {
   async asyncData({ $content, params, error, app }) {
     try {
-      const { authors } = await $content('authors').fetch()
-      const author = authors.find((a) => a.username === params.author)
+      const author = await $content('authors', params.author).fetch()
 
       if (!author) {
         return error({ statusCode: 404, message: 'Page not found' })
@@ -54,14 +53,6 @@ export default {
       return {
         author,
         posts,
-        routes: [
-          { route: `/authors`, title: app.i18n.t('page_authors_title') },
-          {
-            route: `/authors/${author.username}`,
-            title: `${author.name}`,
-            current: true,
-          },
-        ],
       }
     } catch (e) {
       return error(e)

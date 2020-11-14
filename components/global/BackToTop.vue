@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <nuxt-link
     v-show="showButton"
     to=""
@@ -6,6 +7,21 @@
   >
     Vlt-icon-arrow-thin-up
   </nuxt-link>
+=======
+  <transition name="fade">
+    <a
+      v-show="showButton"
+      href="#top"
+      class="Back-to-top Vlt-btn Vlt-btn--primary Vlt-btn--icon"
+    >
+      <svg class="Vlt-icon Vlt-icon--large Vlt-white">
+        <use
+          xlink:href="../../node_modules/@vonagevolta/volta2/dist/symbol/volta-icons.svg#Vlt-icon-arrow-thin-up"
+        />
+      </svg>
+    </a>
+  </transition>
+>>>>>>> develop
 </template>
 
 <script>
@@ -26,6 +42,10 @@ export default {
 
   methods: {
     handleScroll() {
+      if (window.pageYOffset === 0) {
+        window.location.hash = ''
+      }
+
       if (window.pageYOffset > 200) {
         this.showButton = true
       } else {
@@ -42,5 +62,11 @@ export default {
   position: fixed;
   bottom: 50px;
   right: 5%;
+}
+</style>
+
+<style>
+html {
+  scroll-behavior: smooth;
 }
 </style>

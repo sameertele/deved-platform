@@ -1,17 +1,51 @@
 <template>
   <div>
-    <Error404 v-if="error.statusCode === 404" />
+    <ErrorI18N v-if="errorType === 'i18n'" :translations="translations" />
+    <Error404 v-else-if="errorType === '404'" />
     <Error400 v-else />
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'default',
   props: {
     error: {
       type: Object,
       required: true,
+    },
+  },
+
+  data() {
+    return {
+      translations: [],
+    }
+  },
+
+  async fetch() {
+    if (this.$route.name) {
+      if (this.$route.name.startsWith('blog/year/month/day/slug___')) {
+        const { slug } = this.$route.params
+        this.translations = await this.$content('blog', { deep: true })
+          .only(['title', 'locale', 'route'])
+          .where({
+            $and: [{ slug }, { published: { $ne: false } }],
+          })
+          .fetch()
+      }
+    }
+  },
+
+  computed: {
+    errorType() {
+      if (this.translations.length > 0) {
+        return 'i18n'
+      }
+
+      if (this.error.statusCode === 404) {
+        return '404'
+      }
+
+      return '400'
     },
   },
 }
