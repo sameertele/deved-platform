@@ -1,34 +1,20 @@
 <template>
-  <div class="flex" :class="'badge--' + slug">
-    <nuxt-link v-if="link" class="flex" :to="localePath(`/tags/${slug}`)">
-      <svg
-        v-if="isProduct"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="white"
-        viewBox="0 0 24 24"
-        style="width: 0.8em; margin: 0 4px -1px 0"
-      >
-        <path
-          d="M9.3 11.6L4.7 1.5H0l6.8 15.3s.1.1.1 0l2.4-5.2zm9.9-10.1s-6.1 13.9-6.9 15.6c-1.8 4.1-3.2 5.1-4.6 5.3H12c1.9 0 3.2-1.3 5.1-5.3.6-1.4 6.9-15.6 6.9-15.6h-4.8z"
-        />
-      </svg>
-      <span v-else>#</span>{{ slug }}
-    </nuxt-link>
-    <template v-else>
-      <svg
-        v-if="isProduct"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="white"
-        viewBox="0 0 24 24"
-        style="width: 0.8em; margin: 0 4px -1px 0"
-      >
-        <path
-          d="M9.3 11.6L4.7 1.5H0l6.8 15.3s.1.1.1 0l2.4-5.2zm9.9-10.1s-6.1 13.9-6.9 15.6c-1.8 4.1-3.2 5.1-4.6 5.3H12c1.9 0 3.2-1.3 5.1-5.3.6-1.4 6.9-15.6 6.9-15.6h-4.8z"
-        />
-      </svg>
-      <span v-else>#</span>{{ slug }}
-    </template>
-  </div>
+  <component
+    :is="link ? 'nuxt-link' : 'span'"
+    :to="localePath(`/tags/${slug}`)"
+    class="inline-flex badge"
+    :class="'badge--' + slug"
+    ><svg
+      v-if="isProduct"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="w-3 mr-2 fill-current"
+    >
+      <path
+        d="M9.3 11.6L4.7 1.5H0l6.8 15.3s.1.1.1 0l2.4-5.2zm9.9-10.1s-6.1 13.9-6.9 15.6c-1.8 4.1-3.2 5.1-4.6 5.3H12c1.9 0 3.2-1.3 5.1-5.3.6-1.4 6.9-15.6 6.9-15.6h-4.8z"
+      /></svg
+    ><span v-else>#</span><span>{{ slug }}</span></component
+  >
 </template>
 
 <script>
@@ -185,6 +171,7 @@ export default {
 }
 
 .badge--go {
+  @apply shadow-inner;
   background-color: #e0ebf5;
   color: #043c6f;
 }

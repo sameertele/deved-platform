@@ -1,6 +1,6 @@
 <template>
-  <div class="flex">
-    <Tag v-for="tag in tags" :key="tag" :tag="tag" />
+  <div class="flex space-x-2">
+    <Tag v-for="tag in tags.slice(0, 3)" :key="tag" :tag="tag" />
   </div>
 </template>
 

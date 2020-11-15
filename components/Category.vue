@@ -1,7 +1,7 @@
 <template>
   <NLink
+    class="text-lg uppercase"
     :to="localePath(`/categories/${category.slug}`)"
-    :class="`Vlt-badge Vlt-badge--white Vlt-badge--transparent Category`"
     :style="`color: ${category.color ? category.color : '#000'}`"
   >
     &lt; {{ plural ? category.plural : category.name }} /&gt;
@@ -22,20 +22,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-a {
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-.Vlt-badge--transparent {
-  background: rgba(255, 255, 255, 0.85);
-}
-
-.Category {
-  color: black;
-  text-shadow: 1px 1px 2px #fff, -1px -1px 2px #fff, -1px 1px 2px #fff,
-    1px -1px 2px #fff;
-}
-</style>

@@ -16,6 +16,7 @@ div.nuxt-progress {
 .badge {
   @apply font-semibold;
   @apply px-3;
+  @apply py-1;
   @apply rounded-full;
   @apply text-sm;
   @apply bg-grey-light;

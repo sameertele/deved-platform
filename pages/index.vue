@@ -1,7 +1,7 @@
 <template>
   <div>
     <SearchHero />
-    <main class="max-w-screen-xl px-4 mx-auto">
+    <main class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
       <section class="index-section">
         <h2>
           <NLink :to="localePath('/blog')">
@@ -33,11 +33,6 @@
         </section>
       </template>
     </main>
-    <footer>
-      <NLink :to="localePath('blog')">
-        {{ $t('page_index_view_all_posts') }}
-      </NLink>
-    </footer>
   </div>
 </template>
 
@@ -95,7 +90,7 @@ export default {
 
 .index-section > h2:before {
   @apply border-t;
-  @apply border-grey;
+  @apply border-grey-light;
   @apply my-0;
   @apply mx-auto;
   @apply absolute;

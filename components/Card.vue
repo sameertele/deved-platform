@@ -1,35 +1,50 @@
 <template>
-  <div class="Vlt-col Vlt-col--1of3 Vlt-col--M-1of2">
-    <div class="Vlt-card--gradient-wrapper Vlt-gradient--blue-to-pink">
-      <div class="Vlt-card Vlt-center">
-        <div class="Vlt-card__header">
-          <Category :category="post.categoryObject" />
-          <span
-            v-if="showLanguage"
-            class="Vlt-badge Vlt-badge--transparent"
-            :class="`Vlt-badge--${language.color}`"
-          >
-            {{ language.name }}
-          </span>
-        </div>
+  <article class="overflow-hidden bg-white rounded-lg">
+    <header class="mt-4 text-center">
+      <Category :category="post.categoryObject" class="Category--border" />
+    </header>
+    <header class="px-4 my-4">
+      <h3 class="flex text-base font-medium tracking-tight xl:text-lg">
+        <svg
+          v-if="post.redirect"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="w-6 h-6 mr-2"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="{2}"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
         <NLink
-          class="Vlt-card__content"
+          class="truncate"
           :to="localePath(post.route, post.locale)"
           :title="post.title"
         >
-          <h2 :class="{ 'Vlt-title--icon': post.redirect }">
-            Vlt-icon-open-full
-            {{ post.title | truncate(48, '...') }}
-          </h2>
+          {{ post.title }}
         </NLink>
-        <div
-          class="Vlt-card__footer Vlt-card__footer--short Vlt-card__footer--noborder"
-        >
-          <Tags :tags="post.tags" />
-        </div>
+      </h3>
+    </header>
+    <main
+      class="flex flex-col px-4 text-xs lg:flex-row lg:space-x-1 text-grey-darker"
+    >
+      <div class="flex space-x-1">
+        <span>Published</span>
+        <strong>{{ post.published_at | moment('dddd, MMMM Do YYYY') }}</strong>
       </div>
-    </div>
-  </div>
+      <div class="flex space-x-1">
+        <span>by</span>
+        <Author :author="post.author" type="name" />
+      </div>
+    </main>
+    <footer class="flex justify-between px-4 py-2 mt-2">
+      <Tags :tags="post.tags" />
+    </footer>
+  </article>
 </template>
 
 <script>
