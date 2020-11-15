@@ -1,3 +1,14 @@
+@import '../fonts/spezia/spezia.css';
+@import 'fontsource-roboto/index.css';
+
+html {
+  font-family: Roboto, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Spezia, Roboto, sans-serif;
+}
+
 div.nuxt-progress {
   background: linear-gradient(to right, #7fc6f4, #d5279b);
 }
@@ -35,6 +46,7 @@ div.nuxt-progress {
   @apply text-black;
   @apply inline-flex;
   @apply items-center;
+  @apply text-sm;
 }
 
 select.button {

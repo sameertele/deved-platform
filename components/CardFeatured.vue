@@ -1,45 +1,57 @@
 <template>
-  <div class="Vlt-col Vlt-col--1of2">
-    <div class="Vlt-card Vlt-bg-white">
-      <NLink
+  <article class="overflow-hidden bg-white rounded-lg">
+    <figure>
+      <nuxt-link
         :to="localePath(post.route, post.locale)"
+        class="card-figure"
         :title="post.title"
-        class="Vlt-card__image"
-        :style="`background-image: url('${post.thumbnail}'); background-size: cover; background-position: center; height: 200px`"
-      />
-      <div class="Vlt-card__header">
-        <NLink :to="localePath(post.route, post.locale)" :title="post.title">
-          <h2
-            class="Blog-truncate"
-            :class="{ 'Vlt-title--icon': post.redirect }"
-          >
-            Vlt-icon-open-full
-            {{ post.title | truncate(73, '...') }}
-          </h2>
-        </NLink>
-      </div>
-      <div class="Vlt-card__content Vlt-grey-dark">
-        <small v-if="post.published_at">
-          Published
-          <strong>{{
-            post.published_at | moment('dddd, MMMM Do YYYY')
-          }}</strong>
-        </small>
-        <small v-if="post.author">
-          by
-          <Author :author="post.author" type="name" />
-        </small>
-      </div>
-      <div class="Vlt-card__footer Vlt-card__footer--short Vlt-left">
-        <Tags :tags="post.tags" />
-      </div>
-      <div
-        class="Vlt-card__footer Vlt-card__footer--short Vlt-card__footer--noborder Vlt-right"
       >
-        <Category :category="post.categoryObject" class="Category--border" />
+        <img :src="post.thumbnail" />
+      </nuxt-link>
+    </figure>
+    <header class="px-4 my-4">
+      <h2 class="flex text-xl font-medium">
+        <svg
+          v-if="post.redirect"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="w-6 mr-2"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="{2}"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
+        <NLink
+          class="truncate"
+          :to="localePath(post.route, post.locale)"
+          :title="post.title"
+        >
+          {{ post.title }}
+        </NLink>
+      </h2>
+    </header>
+    <main
+      class="flex flex-col px-4 text-xs sm:flex-row sm:space-x-1 text-grey-darker"
+    >
+      <div class="flex space-x-1">
+        <span>Published</span>
+        <strong>{{ post.published_at | moment('dddd, MMMM Do YYYY') }}</strong>
       </div>
-    </div>
-  </div>
+      <div class="flex space-x-1">
+        <span>by</span>
+        <Author :author="post.author" type="name" />
+      </div>
+    </main>
+    <footer class="flex justify-between py-2 mx-4 mt-2 border-t">
+      <Tags :tags="post.tags" />
+      <Category :category="post.categoryObject" class="Category--border" />
+    </footer>
+  </article>
 </template>
 
 <script>
@@ -54,63 +66,16 @@ export default {
 </script>
 
 <style scoped>
-.Vlt-card__footer {
-  line-height: 30px;
+.card-figure {
+  @apply block;
+  @apply w-full;
+  @apply overflow-hidden;
 }
 
-.Vlt-card__footer + .Vlt-card__footer--noborder {
-  margin-top: -37px;
-}
-
-.Vlt-card__footer >>> .Vlt-badge-group {
-  width: 75%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.Vlt-card__corner {
-  padding: 0;
-}
-
-.Vlt-card__content small >>> a.Author__Name {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.Vlt-card__content small >>> a.Author__Name:visited {
-  color: #202020;
-}
-
-.Vlt-card__header {
-  padding-bottom: 8px;
-}
-
-.Category--border {
-  border: 1px solid rgba(19, 20, 21, 0.2);
-}
-
-@media only screen and (min-width: 575px) {
-  .Vlt-card__header h2.Blog-truncate {
-    display: block;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-
-h2 {
-  margin-bottom: 0;
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 2rem;
-  line-height: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-h2 svg {
-  width: 15px;
+.card-figure img {
+  @apply object-cover;
+  @apply object-center;
+  @apply h-64;
+  @apply w-full;
 }
 </style>

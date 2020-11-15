@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style scoped>
-.index-section h2 {
+.index-section > h2 {
   @apply my-4;
   @apply text-sm;
   @apply font-light;
@@ -84,15 +84,16 @@ export default {
   @apply text-grey-dark;
   @apply relative;
   @apply z-20;
+  @apply tracking-widest;
 }
 
 @screen md {
-  .index-section h2 {
+  .index-section > h2 {
     @apply my-10;
   }
 }
 
-.index-section h2:before {
+.index-section > h2:before {
   @apply border-t;
   @apply border-grey;
   @apply my-0;
@@ -107,7 +108,7 @@ export default {
   top: 50%;
 }
 
-.index-section h2 a {
+.index-section > h2 > a {
   @apply bg-grey-lighter;
   @apply z-10;
   @apply py-0;

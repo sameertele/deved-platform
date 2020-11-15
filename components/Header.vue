@@ -125,7 +125,7 @@
       }"
     >
       <div
-        class="flex flex-col justify-center w-1/2 px-2 pt-2 pb-3 mx-auto space-y-4 sm:px-3"
+        class="flex flex-col justify-center w-3/4 px-2 pt-2 pb-3 mx-auto space-y-4 sm:px-3"
       >
         <twitch-social-button link="https://twitch.tv/vonagedevs"
           >Watch on Twitch</twitch-social-button

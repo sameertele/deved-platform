@@ -3,10 +3,10 @@
     <section
       class="flex flex-col flex-no-wrap items-center justify-center h-32 max-w-screen-xl px-4 mx-auto text-center md:h-64 search-hero sm:px-6 lg:px-8"
     >
-      <h1 class="w-full h-16 text-xl md:w-1/2">
+      <h1 class="w-full h-16 text-lg md:w-1/2">
         {{ $t('component_search_hero_title') }}
         <img
-          class="inline h-6"
+          class="inline h-6 ml-2"
           src="@/assets/images/vonage/wordmark.svg"
           :alt="$t('component_header_badge')"
         />

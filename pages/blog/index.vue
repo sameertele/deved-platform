@@ -1,35 +1,10 @@
 <template>
-  <section class="Blog__Full-width">
-    <header class="Blog__Full-width">
-      <PageHero class="Category-hero">
-        {{ $t('page_blog_title') }}
-      </PageHero>
-    </header>
-    <main class="Vlt-container">
-      <div class="Vlt-grid">
-        <div class="Vlt-col" />
-        <div class="Vlt-col Vlt-col--2of3">
-          <Breadcrumbs />
-        </div>
-        <div class="Vlt-col" />
-        <div class="Vlt-grid__separator" />
-        <CardFeatured
-          v-for="post in latestPosts"
-          :key="`featured-${post.route}`"
-          :post="post"
-        />
-      </div>
-    </main>
-    <footer class="Blog__Full-width Vlt-center">
-      <NLink
-        :to="localePath('blog')"
-        no-prefetch
-        class="Vlt-btn Vlt-btn--quaternary Vlt-btn--small"
-      >
-        {{ $t('page_index_view_all_posts') }}
-      </NLink>
-    </footer>
-  </section>
+  <main class="max-w-screen-xl px-4 mx-auto">
+    <Breadcrumbs />
+    <section class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <CardFeatured v-for="(post, i) in latestPosts" :key="i" :post="post" />
+    </section>
+  </main>
 </template>
 
 <script>
@@ -47,22 +22,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Vlt-text-separator {
-  margin: 50px 5%;
-}
-
-.Vlt-grid + .Vlt-text-separator {
-  margin-top: 26px;
-}
-
-.Vlt-text-separator a,
-.Vlt-text-separator span {
-  text-transform: uppercase;
-  color: #868994;
-  font-size: 1.4rem;
-  font-weight: 500;
-  letter-spacing: 0.2rem;
-}
-</style>
