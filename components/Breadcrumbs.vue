@@ -1,10 +1,10 @@
 <template>
   <ol
-    class="breadcrumb Vlt-margin--A-top1 Vlt-margin--A-bottom2"
+    class="my-4 text-sm list-none"
     vocab="http://schema.org/"
     typeof="BreadcrumbList"
   >
-    <li property="itemListElement" typeof="ListItem">
+    <li class="inline-block" property="itemListElement" typeof="ListItem">
       <NLink property="item" typeof="WebPage" to="/">
         <span property="name">Vonage Learn</span>
       </NLink>
@@ -13,6 +13,7 @@
     <li
       v-for="(crumb, index) in crumbs"
       :key="index"
+      class="inline-block"
       property="itemListElement"
       typeof="ListItem"
     >
@@ -66,14 +67,6 @@ export default {
 </script>
 
 <style scoped>
-ol {
-  list-style: none;
-}
-
-li {
-  display: inline;
-}
-
 li:after {
   content: ' » ';
   display: inline;

@@ -13,7 +13,7 @@ export default {
     const latestPosts = await $content(`blog/${app.i18n.locale}`)
       .where({ published: { $ne: false } })
       .sortBy('published_at', 'desc')
-      .limit(20)
+      .limit(12)
       .fetch()
 
     return {
