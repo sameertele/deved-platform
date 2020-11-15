@@ -20,10 +20,7 @@
             :placeholder="$t('component_search_hero_placeholder')"
             class="search-input"
           />
-          <button
-            type="submit"
-            class="px-4 py-2 -ml-px text-gray-700 transition duration-150 ease-in-out border-l border-gray-300 rounded-r-lg outline-none focus:outline-none bg-gray-50 hover:text-gray-500 hover:bg-white active:bg-gray-100 active:text-gray-700"
-          >
+          <button type="submit" class="bg-gray-100 search-button">
             <svg
               class="w-5 h-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -52,10 +49,7 @@
             :placeholder="$t('component_search_hero_placeholder')"
             class="search-input"
           />
-          <button
-            type="submit"
-            class="px-4 py-2 -ml-px text-gray-700 transition duration-150 ease-in-out border-l border-gray-300 rounded-r-lg outline-none focus:outline-none bg-gray-50 hover:text-gray-500 hover:bg-white active:bg-gray-100 active:text-gray-700"
-          >
+          <button type="submit" class="bg-gray-100 search-button">
             <svg
               class="w-5 h-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -115,16 +109,46 @@ export default {
   @apply transition;
   @apply ease-in-out;
   @apply duration-150;
+  @apply text-sm;
+  @apply leading-5;
 }
 
 .search-input:focus {
   @apply outline-none;
 }
 
-@media (sm) {
+@screen md {
   .search-input {
-    @apply text-sm;
-    @apply leading-5;
+    @apply text-base;
+    @apply leading-normal;
   }
+}
+
+.search-button {
+  @apply px-4;
+  @apply py-2;
+  @apply -ml-px;
+  @apply text-gray-700;
+  @apply transition;
+  @apply duration-150;
+  @apply ease-in-out;
+  @apply border-l;
+  @apply border-gray-300;
+  @apply rounded-r-lg;
+  @apply outline-none;
+}
+
+.search-button:focus {
+  @apply outline-none;
+}
+
+.search-button:hover {
+  @apply text-gray-500;
+  @apply bg-white;
+}
+
+.search-button:active {
+  @apply bg-gray-100;
+  @apply text-gray-700;
 }
 </style>
