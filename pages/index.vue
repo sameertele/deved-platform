@@ -1,44 +1,26 @@
 <template>
-  <section class="Blog__Full-width">
-    <header class="Blog__Full-width">
-      <SearchHero />
-    </header>
-    <main class="Vlt-container">
-      <div class="Vlt-text-separator">
-        <span>{{ $t('page_index_latest_posts') }}</span>
-      </div>
-      <div class="Vlt-grid">
-        <CardFeatured
-          v-for="post in latestPosts"
-          :key="`featured-${post.route}`"
-          :post="post"
-        />
-      </div>
-      <template v-for="category in categories">
-        <template v-if="category.posts && category.posts.length > 0">
-          <div :key="`${category.slug}-separator`" class="Vlt-text-separator">
-            <span>
-              <NLink :to="localePath(`/categories/${category.slug}`)">
-                {{ category.plural }}
-              </NLink>
-            </span>
-          </div>
-          <div :key="`${category.slug}-grid`" class="Vlt-grid">
-            <Card
-              v-for="post in category.posts"
-              :key="`${category.slug}-${post.route}`"
-              :post="post"
-            />
-          </div>
-        </template>
+  <section>
+    <SearchHero />
+    <main>
+      <span>{{ $t('page_index_latest_posts') }}</span>
+      <CardFeatured v-for="(post, i) in latestPosts" :key="i" :post="post" />
+      <template v-for="(category, i) in categories">
+        <div v-if="category.posts && category.posts.length > 0" :key="i">
+          <span>
+            <NLink :to="localePath(`/categories/${category.slug}`)">
+              {{ category.plural }}
+            </NLink>
+          </span>
+          <Card
+            v-for="post in category.posts"
+            :key="`${category.slug}-${post.route}`"
+            :post="post"
+          />
+        </div>
       </template>
     </main>
-    <footer class="Blog__Full-width Vlt-center">
-      <NLink
-        :to="localePath('blog')"
-        no-prefetch
-        class="Vlt-btn Vlt-btn--quaternary Vlt-btn--small"
-      >
+    <footer>
+      <NLink :to="localePath('blog')">
         {{ $t('page_index_view_all_posts') }}
       </NLink>
     </footer>
@@ -80,21 +62,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.Vlt-text-separator {
-  margin: 50px 5%;
-}
-
-.Vlt-grid + .Vlt-text-separator {
-  margin-top: 26px;
-}
-
-.Vlt-text-separator a,
-.Vlt-text-separator span {
-  text-transform: uppercase;
-  color: #868994;
-  font-size: 1.4rem;
-  font-weight: 500;
-  letter-spacing: 0.2rem;
-}
-</style>
+<style scoped></style>

@@ -1,21 +1,21 @@
 <template>
-  <nav class="bg-white">
-    <div class="px-4 mx-auto max-w-screen-xl sm:px-6 lg:px-8">
+  <nav class="bg-white shadow">
+    <div class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center justify-items-end">
-          <div class="flex flex-shrink-0">
+          <nuxt-link :to="localePath('/')" class="flex-shrink-0">
             <img
               class="h-6"
               src="@/assets/images/vonage/wordmark.svg"
               :alt="$t('component_header_badge')"
             />
-          </div>
+          </nuxt-link>
           <span class="ml-4 badge badge--small badge--purple">{{
             $t('component_header_badge')
           }}</span>
         </div>
         <div class="hidden md:block">
-          <div class="flex items-middle ml-10 space-x-2">
+          <div class="flex ml-10 space-x-2 items-middle">
             <twitch-social-button
               class="button--small"
               link="https://twitch.tv/vonagedevs"
@@ -39,7 +39,7 @@
 
             <div class="relative inline-flex">
               <svg
-                class="w-2 h-2 absolute top-0 right-0 m-3 pointer-events-none"
+                class="absolute top-0 right-0 w-2 h-2 m-3 pointer-events-none"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 412 232"
               >
@@ -71,7 +71,7 @@
         <div class="flex -mr-2 md:hidden">
           <!-- Mobile menu button -->
           <button
-            class="mr-6 inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
+            class="inline-flex items-center justify-center p-2 mr-6 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
             @click="isOpen = !isOpen"
           >
             <!-- Menu open: "hidden", Menu closed: "block" -->
@@ -125,7 +125,7 @@
       }"
     >
       <div
-        class="px-2 pt-2 pb-3 space-y-2 sm:px-3 flex flex-col justify-center"
+        class="flex flex-col justify-center w-1/2 px-2 pt-2 pb-3 mx-auto space-y-4 sm:px-3"
       >
         <twitch-social-button link="https://twitch.tv/vonagedevs"
           >Watch on Twitch</twitch-social-button
