@@ -1,5 +1,5 @@
 <template>
-  <article class="overflow-hidden bg-white rounded-lg">
+  <article class="overflow-hidden bg-white rounded-lg shadow">
     <header class="mt-4 text-center">
       <Category :category="post.categoryObject" class="Category--border" />
     </header>

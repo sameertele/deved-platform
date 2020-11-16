@@ -1,7 +1,7 @@
 <template>
   <main class="max-w-screen-xl px-4 mx-auto">
     <Breadcrumbs />
-    <section class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+    <section class="grid grid-cols-1 gap-6 lg:grid-cols-2">
       <CardFeatured v-for="(post, i) in latestPosts" :key="i" :post="post" />
     </section>
   </main>

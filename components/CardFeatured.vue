@@ -1,5 +1,5 @@
 <template>
-  <article class="overflow-hidden bg-white rounded-lg">
+  <article class="overflow-hidden bg-white rounded-lg shadow">
     <figure>
       <nuxt-link
         :to="localePath(post.route, post.locale)"

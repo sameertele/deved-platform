@@ -9,7 +9,7 @@
             {{ $t('page_index_latest_posts') }}
           </NLink>
         </h2>
-        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <CardFeatured
             v-for="(post, i) in latestPosts"
             :key="i"
@@ -28,7 +28,7 @@
               {{ category.plural }}
             </NLink>
           </h2>
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card v-for="(post, k) in category.posts" :key="k" :post="post" />
           </div>
         </section>
