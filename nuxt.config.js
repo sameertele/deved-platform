@@ -89,6 +89,12 @@ export default {
     },
   },
 
+  privateRuntimeConfig: {
+    axios: {
+      browserBaseURL: config.baseUrl,
+    },
+  },
+
   i18n,
 
   feed: async () => {

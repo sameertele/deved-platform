@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="!$fetchState.pending"
     class="bg-white shadow md:bg-none md:shadow-none"
     :class="{ hidden: !open }"
   >
@@ -65,7 +64,7 @@ export default {
     }
   },
 
-  async fetch() {
+  async mounted() {
     const { status } = await this.$axios.$get('/api/live-on-twitch')
     this.open = status === 'online'
   },

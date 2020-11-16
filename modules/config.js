@@ -6,7 +6,9 @@ const config = {
   baseUrl:
     (process.env.CONTEXT === 'production'
       ? process.env.URL
-      : process.env.DEPLOY_PRIME_URL) || 'http://localhost:3000',
+      : process.env.DEPLOY_PRIME_URL) || process.env.NETLIFY_DEV
+      ? 'http://localhost:8888'
+      : 'http://localhost:3000',
   indexTitle: 'We ♥ content',
   baseBrand: 'Vonage',
   baseTitle: 'Developer content from Vonage',
