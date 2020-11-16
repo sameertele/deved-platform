@@ -37,6 +37,7 @@
           class=""
           :src="open ? video : null"
           scrolling="no"
+          allow="autoplay"
           allowfullscreen="false"
         >
         </iframe>
