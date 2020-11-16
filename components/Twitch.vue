@@ -65,8 +65,12 @@ export default {
   },
 
   async mounted() {
-    const { status } = await this.$axios.$get('/api/live-on-twitch')
-    this.open = status === 'online'
+    try {
+      const { status } = await this.$axios.$get('/api/live-on-twitch')
+      this.open = status === 'online'
+    } catch (error) {
+      this.open = false
+    }
   },
 
   methods: {
