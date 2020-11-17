@@ -83,6 +83,18 @@ export default {
     baseURL: 'http://localhost:8888', // Used as fallback if no runtime config is provided
   },
 
+  // Content module configuration (https://go.nuxtjs.dev/config-content)
+  content: {
+    liveEdit: false,
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
+      },
+    },
+  },
+
+  i18n,
+
   publicRuntimeConfig: {
     axios: {
       browserBaseURL: config.baseUrl,
@@ -92,16 +104,6 @@ export default {
   privateRuntimeConfig: {
     axios: {
       browserBaseURL: config.baseUrl,
-    },
-  },
-
-  i18n,
-
-  content: {
-    markdown: {
-      prism: {
-        theme: '~/prism-themes/themes/prism-vsc-dark-plus.css',
-      },
     },
   },
 
@@ -235,11 +237,6 @@ export default {
   // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router#base
   router: {
     routeNameSplitter: '/',
-  },
-
-  // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: {
-    liveEdit: false,
   },
 
   build: {

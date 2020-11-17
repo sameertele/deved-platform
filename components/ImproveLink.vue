@@ -4,7 +4,7 @@
     target="_blank"
     class="Vlt-text-link"
   >
-    Brand-icon-github Please help improve this article</a
+    Please help improve this article</a
   >
 </template>
 

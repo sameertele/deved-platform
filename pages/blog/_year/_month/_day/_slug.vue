@@ -8,22 +8,54 @@
         <Author :author="post.author" type="card" />
       </aside>
       <div class="col-span-3 row-span-2">
-        <article class="overflow-hidden bg-white rounded-lg shadow">
-          <figure>
+        <article
+          class="bg-white rounded-lg shadow"
+          vocab="http://schema.org/"
+          typeof="BlogPosting"
+          property="mainEntityOfPage"
+        >
+          <figure class="overflow-hidden rounded-t-lg">
             <div class="card-figure">
-              <img :src="post.thumbnail" alt="post.title" />
+              <img property="image" :src="post.thumbnail" alt="post.title" />
             </div>
           </figure>
           <header class="px-4 my-4">
-            <h3 class="flex text-xl font-medium truncate">
+            <h1 class="flex text-xl font-medium truncate" property="headline">
               {{ post.title }}
-            </h3>
-            <main class="mt-4 text-xs text-grey-darker">
-              <div class="truncate">
+              <meta property="publisher" content="@VonageDev" />
+            </h1>
+            <main class="mt-4 text-grey-darker">
+              <div
+                v-if="post.updated_at"
+                class="truncate text-sm mb-2"
+                property="dateModified"
+                :content="post.updated_at"
+              >
+                Updated {{ post.updated_at | moment('dddd, MMMM Do YYYY') }}
+              </div>
+              <div
+                :class="{
+                  'text-xs ': !!post.updated_at,
+                  'text-sm': !post.updated_at,
+                }"
+                class="truncate mb-4"
+                property="datePublished"
+                :content="post.published_at"
+              >
                 Published {{ post.published_at | moment('dddd, MMMM Do YYYY') }}
               </div>
-              <div>
-                <ImproveLink :post="post" /> (<RevisionsLink :post="post" />)
+              <div class="text-sm text-grey-dark">
+                <svg
+                  class="w-3 inline fill-current"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>GitHub icon</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                  /></svg
+                ><ImproveLink :post="post" /> (<RevisionsLink :post="post" />)
               </div>
             </main>
             <footer class="flex justify-between py-2 mt-2 border-t">
@@ -35,15 +67,28 @@
             </footer>
           </header>
           <main class="px-4 my-4">
+            <section v-if="post.spotlight" class="mb-4">
+              <Spotlight class="spotlight" />
+            </section>
             <nuxt-content
+              property="articleBody"
               class="mx-auto prose-sm prose sm:prose lg:prose-lg"
               :document="post"
             />
           </main>
-          <footer class="px-4 my-4">footer</footer>
+          <footer class="p-4">
+            <section v-if="post.comments" class="border-t py-4">
+              Comments currently disabled.
+            </section>
+            <section v-if="post.spotlight" class="border-t pt-4">
+              <SpotlightFooter class="spotlight" />
+            </section>
+          </footer>
         </article>
       </div>
-      <aside class="col-span-1 border">author</aside>
+      <aside class="col-span-1 border">
+        {{ post.toc.filter((t) => t.depth === 2) }}
+      </aside>
     </section>
   </main>
 </template>
@@ -215,183 +260,23 @@ export default {
 </script>
 
 <style scoped>
-.Blog__Category {
-  text-transform: uppercase;
-  font-weight: 600;
-  margin: 1rem auto;
-  display: inline-block;
+.nuxt-content .nuxt-content-highlight {
+  margin: 0 -30px;
 }
 
-.Redirect {
-  margin: 3rem auto 1rem auto;
+.nuxt-content .nuxt-content-highlight pre {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-.Blog__post h1 {
-  margin: 1rem auto;
-  font-size: 3rem;
+.nuxt-content img {
+  @apply rounded-lg;
+  margin: 0 auto;
 }
 
-.Blog__post header {
-  margin-bottom: 24px;
-}
-
-.Blog__post img {
-  border-radius: 6px;
-}
-
-.Blog__post .nuxt-content {
-  padding: auto 50px;
-}
-
-.Blog__post .nuxt-content >>> a,
-.Blog__post .nuxt-content >>> li,
-.Blog__post .nuxt-content >>> p {
-  font-size: 16px;
-  line-height: 1.55em;
-}
-
-.Blog__post .nuxt-content >>> ol,
-.Blog__post .nuxt-content >>> ul {
-  list-style: none;
-  margin-bottom: 16px;
-  padding-left: 16px;
-}
-
-.Blog__post .nuxt-content >>> ol {
-  counter-reset: list;
-  padding-left: 20px;
-}
-
-.Blog__post .nuxt-content >>> li {
-  margin-bottom: 0.2em;
-  position: relative;
-  margin-left: 24px;
-}
-
-.Blog__post .nuxt-content >>> ul li:before {
-  color: #000;
-  content: '•';
-  left: -16px;
-  position: absolute;
-  top: 0em;
-}
-
-.Blog__post .nuxt-content >>> ol li:before {
-  color: #000;
-  content: counter(list) '.';
-  counter-increment: list;
-  font-weight: 600;
-  left: -20px;
-  position: absolute;
-  top: 0em;
-}
-
-.Blog__post .nuxt-content >>> h2 {
-  margin-top: 25px;
-}
-
-.Blog__post .nuxt-content >>> h3 {
-  margin-top: 25px;
-}
-
-.Blog__post .nuxt-content >>> pre {
-  border-radius: 8px;
-  padding: 1em;
-  background: #131415;
-  color: #c2c4cc;
-  margin: 35px -30px;
-  font-size: 16px;
-  line-height: 1.4;
-  padding-left: 27px;
-}
-
-.Blog__post .nuxt-content >>> pre code {
-  background: #131415;
-  color: #c2c4cc;
-}
-
-.Blog__post .nuxt-content >>> p {
-  text-align: justify;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  -ms-word-break: normal;
-  word-break: normal;
-}
-
-.Blog__post .nuxt-content >>> blockquote {
-  margin: 24px auto;
-  background-color: #ffffff;
-  border-radius: 6px;
-  box-shadow: inset 0 0 0 1px #9b9da3;
-  display: -ms-flexbox;
-  display: flex;
-  opacity: 1;
-  overflow: hidden;
-  padding: 20px;
-  padding-left: 21px;
-  position: relative;
-  text-align: left;
-  transition: all 0.3s ease-out;
-}
-
-.Blog__post .nuxt-content >>> blockquote:before {
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 5px;
-  background-color: #871fff;
-}
-
-.Blog__post .nuxt-content >>> blockquote p {
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
-  -ms-flex: 2;
-  flex: 2;
-  margin-left: 4px;
-  word-break: break-word;
-}
-
-.Blog__post .nuxt-content >>> p code {
-  border: 1px solid silver;
-  background: #f9f9fa;
-}
-
-.Blog__post .nuxt-content >>> .language-diff .token {
-  width: 100%;
-  display: inherit;
-  white-space: pre-wrap;
-}
-
-.Blog__post .nuxt-content >>> .language-diff .token.inserted {
-  color: #e84545;
-  background: #270404;
-}
-
-.Blog__post .nuxt-content >>> .language-diff .token.deleted {
-  color: #86d8b9;
-  background: #021a10;
-}
-
-.Blog__post .nuxt-content >>> p img {
-  display: block;
-  margin: 24px auto;
-  max-height: 50vh;
-  max-width: 100%;
-}
-
-@media only screen and (max-width: 767px) {
-  .Blog__post .nuxt-content >>> pre[class*='language-'] {
-    margin: 24px 10px;
-    padding-left: 12px;
-  }
-}
-
-.Vlt-grid >>> .Author-col {
-  flex: 0 0 66.66%;
-  max-width: 66.66%;
+.spotlight >>> img {
+  @apply rounded-lg;
+  @apply mx-auto;
+  @apply mb-4;
 }
 </style>
