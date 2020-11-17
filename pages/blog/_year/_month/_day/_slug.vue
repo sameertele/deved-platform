@@ -18,18 +18,12 @@
             <h3 class="flex text-xl font-medium truncate">
               {{ post.title }}
             </h3>
-            <main
-              class="flex flex-col mt-4 text-xs sm:flex-row sm:space-x-1 text-grey-darker"
-            >
-              <div class="flex space-x-1">
-                <span>Published</span>
-                <strong>{{
-                  post.published_at | moment('dddd, MMMM Do YYYY')
-                }}</strong>
+            <main class="mt-4 text-xs text-grey-darker">
+              <div class="truncate">
+                Published {{ post.published_at | moment('dddd, MMMM Do YYYY') }}
               </div>
-              <div class="flex space-x-1">
-                <span>by</span>
-                <Author :author="post.author" type="name" />
+              <div>
+                <ImproveLink :post="post" /> (<RevisionsLink :post="post" />)
               </div>
             </main>
             <footer class="flex justify-between py-2 mt-2 border-t">
