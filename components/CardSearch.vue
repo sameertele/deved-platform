@@ -56,3 +56,18 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.card-figure {
+  @apply block;
+  @apply w-full;
+  @apply overflow-hidden;
+}
+
+.card-figure img {
+  @apply object-cover;
+  @apply object-center;
+  @apply h-64;
+  @apply w-full;
+}
+</style>

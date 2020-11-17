@@ -101,7 +101,7 @@ export default {
   @apply outline-none;
   @apply block;
   @apply w-full;
-  @apply pl-2;
+  @apply pl-4;
   @apply transition;
   @apply ease-in-out;
   @apply duration-150;

@@ -6,7 +6,7 @@
         class="card-figure"
         :title="post.title"
       >
-        <img :src="post.thumbnail" />
+        <img :src="post.thumbnail" alt="post.title" />
       </nuxt-link>
     </figure>
     <header class="px-4 my-4">
