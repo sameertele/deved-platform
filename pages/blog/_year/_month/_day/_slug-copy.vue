@@ -1,57 +1,138 @@
 <template>
-  <main class="max-w-screen-xl px-4 mx-auto">
-    <Breadcrumbs />
-    <section
-      class="grid grid-cols-1 gap-y-6 md:gap-6 md:grid-cols-4 xl:grid-cols-5"
+  <section class="Blog__Full-width">
+    <div v-if="post && post.redirect">
+      <Redirector :url="post.redirect" />
+    </div>
+    <article
+      v-else
+      class="Blog__post Vlt-container"
+      vocab="http://schema.org/"
+      typeof="BlogPosting"
     >
-      <aside class="col-span-1 border">
-        <Author :author="post.author" type="card" />
-      </aside>
-      <div class="col-span-3 row-span-2">
-        <article class="overflow-hidden bg-white rounded-lg shadow">
-          <figure>
-            <div class="card-figure">
-              <img :src="post.thumbnail" alt="post.title" />
-            </div>
-          </figure>
-          <header class="px-4 my-4">
-            <h3 class="flex text-xl font-medium truncate">
-              {{ post.title }}
-            </h3>
-            <main
-              class="flex flex-col mt-4 text-xs sm:flex-row sm:space-x-1 text-grey-darker"
-            >
-              <div class="flex space-x-1">
-                <span>Published</span>
-                <strong>{{
-                  post.published_at | moment('dddd, MMMM Do YYYY')
-                }}</strong>
-              </div>
-              <div class="flex space-x-1">
-                <span>by</span>
-                <Author :author="post.author" type="name" />
-              </div>
-            </main>
-            <footer class="flex justify-between py-2 mt-2 border-t">
-              <Tags :tags="post.tags" />
-              <Category
-                :category="post.categoryObject"
-                class="Category--border"
+      <div class="Vlt-grid Vlt-grid--stack-flush">
+        <div class="Vlt-col" />
+        <div class="Vlt-col Vlt-col--2of3">
+          <Breadcrumbs :title="post.title" />
+        </div>
+        <div class="Vlt-col" />
+        <div class="Vlt-grid__separator" />
+        <div class="Vlt-col" />
+        <div class="Vlt-col Vlt-col--2of3">
+          <div
+            class="Vlt-card Vlt-card--lesspadding"
+            property="mainEntityOfPage"
+          >
+            <div v-if="post.thumbnail" class="Vlt-card__header">
+              <img
+                property="image"
+                :src="post.thumbnail"
+                :alt="post.title"
+                width="100%"
               />
-            </footer>
-          </header>
-          <main class="px-4 my-4">
-            <nuxt-content
-              class="mx-auto prose-sm prose sm:prose lg:prose-lg"
-              :document="post"
-            />
-          </main>
-          <footer class="px-4 my-4">footer</footer>
-        </article>
+            </div>
+            <div
+              v-if="post.categoryObject"
+              class="Vlt-card__corner Vlt-margin--A-top3"
+            >
+              <Category :category="post.categoryObject" />
+            </div>
+            <div class="Vlt-card__header Vlt-margin--A-top3">
+              <h1 property="headline">
+                {{ post.title }}
+              </h1>
+              <BackToTop />
+            </div>
+            <div
+              v-if="post.author"
+              class="Vlt-card__content Vlt-margin--A-top3"
+            >
+              <Author :author="post.author" type="minicard" property="author" />
+              <meta property="publisher" content="@VonageDev" />
+            </div>
+            <div
+              v-if="post.published_at"
+              class="Vlt-card__content Vlt-margin--A-top1"
+            >
+              <template v-if="post.updated_at">
+                <span property="dateModified" :content="post.updated_at"
+                  >Updated
+                  <strong>{{
+                    post.updated_at | moment('dddd, MMMM Do YYYY')
+                  }}</strong></span
+                ><br />
+                <small property="datePublished" :content="post.published_at"
+                  >Originally Published
+                  <strong>{{
+                    post.published_at | moment('dddd, MMMM Do YYYY')
+                  }}</strong></small
+                >
+              </template>
+              <template v-else>
+                <span property="datePublished" :content="post.published_at"
+                  >Published
+                  <strong>{{
+                    post.published_at | moment('dddd, MMMM Do YYYY')
+                  }}</strong></span
+                >
+              </template>
+            </div>
+            <div class="Vlt-card__content">
+              <small
+                ><ImproveLink :post="post" /> (<RevisionsLink
+                  :post="post"
+                />)</small
+              >
+            </div>
+            <div v-if="post.tags" class="Vlt-card__content Vlt-margin--A-top1">
+              <Tags :tags="post.tags" />
+            </div>
+            <hr class="hr--short Vlt-gradient--blue-to-pink" />
+            <div
+              v-if="post.spotlight"
+              class="Vlt-card__content Vlt-margin--A-top1"
+            >
+              <Spotlight />
+            </div>
+            <div
+              v-if="post.outdated || post.replacement_url"
+              class="Vlt-card__content Vlt-margin--A-top1"
+            >
+              <Outdated :outdated="post.outdated" :url="post.replacement_url" />
+            </div>
+            <div
+              class="Vlt-card__content Vlt-margin--A-top3"
+              property="articleBody"
+            >
+              <nuxt-content :document="post" />
+            </div>
+          </div>
+        </div>
+        <div class="Vlt-col" />
+        <div class="Vlt-grid__separator" />
+        <div class="Vlt-col" />
+        <div class="Vlt-col Vlt-col--2of3">
+          <div v-if="post.comments" class="Vlt-card Vlt-bg-white">
+            <div id="comments" class="Vlt-card__content">
+              Comments currently disabled.
+            </div>
+          </div>
+        </div>
+        <div class="Vlt-col" />
+        <template v-if="post.spotlight">
+          <div class="Vlt-grid__separator" />
+          <div class="Vlt-col" />
+          <div class="Vlt-col Vlt-col--2of3">
+            <SpotlightFooter />
+          </div>
+          <div class="Vlt-col" />
+        </template>
+        <div class="Vlt-grid__separator" />
+        <div class="Vlt-col" />
+        <Author :author="post.author" type="card" />
+        <div class="Vlt-col" />
       </div>
-      <aside class="col-span-1 border">author</aside>
-    </section>
-  </main>
+    </article>
+  </section>
 </template>
 
 <script>

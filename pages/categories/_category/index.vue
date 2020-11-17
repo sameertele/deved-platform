@@ -1,9 +1,9 @@
 <template>
   <section class="Blog__Full-width">
     <header class="Blog__Full-width">
-      <PageHero class="Category-hero">
+      <HeroPage class="Category-hero">
         <Category :category="category" plural />
-      </PageHero>
+      </HeroPage>
     </header>
     <main class="Vlt-container">
       <div class="Vlt-grid">

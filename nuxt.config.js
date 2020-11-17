@@ -97,6 +97,14 @@ export default {
 
   i18n,
 
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
+      },
+    },
+  },
+
   feed: async () => {
     const { $content } = require('@nuxt/content')
 

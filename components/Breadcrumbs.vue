@@ -1,6 +1,6 @@
 <template>
   <ol
-    class="my-4 text-sm list-none"
+    class="my-4 text-sm truncate list-none"
     vocab="http://schema.org/"
     typeof="BreadcrumbList"
   >

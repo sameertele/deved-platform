@@ -22,6 +22,13 @@ module.exports = {
       '5xl': ['3rem', { lineHeight: '1' }],
       '6xl': ['4rem', { lineHeight: '1' }],
     },
+    typography: {
+      default: {
+        css: {
+          maxWidth: '100%',
+        },
+      },
+    },
     extend: {
       colors: {
         black: '#000000',

@@ -45,17 +45,47 @@
           </template>
         </ais-state-results>
         <footer>
-          <ais-pagination
-            :class-names="{
-              'ais-Pagination': 'Vlt-table__pagination',
-              'ais-Pagination-item--firstPage': 'Vlt-table__pagination__prev',
-              'ais-Pagination-item--lastPage': 'Vlt-table__pagination__next',
-              'ais-Pagination-item--previousPage':
-                'Vlt-table__pagination__prev',
-              'ais-Pagination-item--nextPage': 'Vlt-table__pagination__next',
-              'ais-Pagination-item--selected': 'Vlt-table__pagination__current',
-            }"
-          />
+          <ais-pagination>
+            <ul
+              slot-scope="{
+                currentRefinement,
+                nbPages,
+                pages,
+                isFirstPage,
+                isLastPage,
+                refine,
+                createURL,
+              }"
+              class="mt-6 text-center"
+            >
+              <li class="inline-block">
+                <a
+                  v-if="!isFirstPage"
+                  class="border button button--primary button--pagination"
+                  :href="createURL(currentRefinement - 1)"
+                  @click.prevent="refine(currentRefinement - 1)"
+                >
+                  Previous
+                </a>
+                <span v-else class="border button button--pagination"
+                  >Previous</span
+                >
+              </li>
+              <li class="inline-block">
+                <a
+                  v-if="!isLastPage"
+                  class="border button button--primary button--pagination"
+                  :href="createURL(currentRefinement + 1)"
+                  @click.prevent="refine(currentRefinement + 1)"
+                >
+                  Next
+                </a>
+                <span v-else class="border button button--pagination"
+                  >Next</span
+                >
+              </li>
+            </ul>
+          </ais-pagination>
         </footer>
       </ais-instant-search>
     </client-only>
@@ -118,5 +148,12 @@ export default {
     @apply text-base;
     @apply leading-normal;
   }
+}
+
+.button--pagination {
+  @apply inline-block;
+  @apply w-24;
+  @apply text-center;
+  @apply mx-6;
 }
 </style>

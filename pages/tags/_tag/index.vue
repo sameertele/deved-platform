@@ -1,9 +1,9 @@
 <template>
   <section class="Blog__Full-width">
     <header class="Blog__Full-width">
-      <PageHero class="Tag-hero">
+      <HeroPage class="Tag-hero">
         <Tag :tag="tag" />
-      </PageHero>
+      </HeroPage>
     </header>
     <main class="Vlt-container">
       <div class="Vlt-grid">
