@@ -1,13 +1,15 @@
 <template>
-  <main class="max-w-screen-xl px-4 mx-auto">
+  <main class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
     <Breadcrumbs />
     <section
       class="grid grid-cols-1 gap-y-6 md:gap-6 md:grid-cols-4 xl:grid-cols-5"
     >
-      <aside class="col-span-1 border">
+      <aside
+        class="static xl:sticky top-4 col-span-1 row-span-2 bg-white rounded-lg shadow p-4"
+      >
         <Author :author="post.author" type="card" />
       </aside>
-      <div class="col-span-3 row-span-2">
+      <div class="col-span-3 row-span-5">
         <article
           class="bg-white rounded-lg shadow"
           vocab="http://schema.org/"
@@ -86,8 +88,11 @@
           </footer>
         </article>
       </div>
-      <aside class="col-span-1 border">
-        {{ post.toc.filter((t) => t.depth === 2) }}
+      <aside
+        class="sticky top-4 col-span-1 bg-white rounded-lg shadow p-4 asides"
+      >
+        <section><TableOfContents :toc="post.toc" :levels="[2]" /></section>
+        <section><h4>Related Posts</h4></section>
       </aside>
     </section>
   </main>
@@ -278,5 +283,17 @@ export default {
   @apply rounded-lg;
   @apply mx-auto;
   @apply mb-4;
+}
+
+.asides section:not(:first-child) {
+  @apply mt-4;
+}
+
+.asides >>> h4 {
+  @apply uppercase;
+}
+
+.top-4 {
+  top: 1rem;
 }
 </style>

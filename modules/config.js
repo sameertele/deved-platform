@@ -26,7 +26,7 @@ const config = {
   postsPerPage: 12,
   repoUrl:
     process.env.REPOSITORY_URL || 'https://github.com/Nexmo/deved-platform',
-  repoBranch: process.env.BRANCH || 'main',
+  repoBranch: process.env.HEAD || 'main',
   algoliaApplicationId: process.env.ALGOLIA_APPLICATION_ID,
   algoliaSearchKey: process.env.ALGOLIA_SEARCH_KEY,
   algoliaIndex: process.env.ALGOLIA_INDEX,

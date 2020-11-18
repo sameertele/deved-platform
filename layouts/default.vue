@@ -4,6 +4,7 @@
     <Header />
     <Nuxt />
     <Footer />
+    <BackToTop />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <main class="max-w-screen-xl px-4 mx-auto">
+  <main class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
     <Breadcrumbs />
     <section class="grid grid-cols-1 gap-6 lg:grid-cols-2">
       <CardFeatured v-for="(post, i) in latestPosts" :key="i" :post="post" />
