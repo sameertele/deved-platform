@@ -91,7 +91,7 @@
       <aside
         class="sticky top-4 col-span-1 bg-white rounded-lg shadow p-4 asides"
       >
-        <section><TableOfContents :toc="post.toc" :levels="[2]" /></section>
+        <section><TableOfContents :toc="post.toc" /></section>
         <section><h4>Related Posts</h4></section>
       </aside>
     </section>

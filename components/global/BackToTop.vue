@@ -7,7 +7,7 @@
       <div class="flex xl:justify-end">
         <a
           href="#top"
-          class="mr-4 block bg-purple rounded-full h-16 w-16 flex items-center justify-center text-white"
+          class="block bg-purple rounded-full h-16 w-16 flex items-center justify-center text-white"
         >
           <svg
             class="w-8 inline stroke-current stroke-2"
