@@ -1,11 +1,11 @@
 <template>
-  <fragment v-if="!$fetchState.pending">
+  <div v-if="!$fetchState.pending">
     <AuthorBubble v-if="type == 'bubble'" :author="authorData" />
     <AuthorCard v-else-if="type == 'card'" :author="authorData" />
     <AuthorMiniCard v-else-if="type == 'minicard'" :author="authorData" />
     <AuthorName v-else-if="type == 'name'" :author="authorData" />
     <AuthorPage v-else-if="type == 'page'" :author="authorData" />
-  </fragment>
+  </div>
 </template>
 
 <script>
