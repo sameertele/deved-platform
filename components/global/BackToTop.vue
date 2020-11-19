@@ -1,13 +1,15 @@
 <template>
   <div
     :class="{ 'opacity-100': showButton, 'opacity-0': !showButton }"
-    class="fixed inset-x-auto bottom-0 w-screen mb-16 transition-opacity duration-500 ease-in-out"
+    class="fixed inset-x-auto bottom-0 w-screen mb-16 transition-opacity duration-500 ease-in-out pointer-events-none"
   >
-    <div class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+    <div
+      class="max-w-screen-xl px-4 mx-auto pointer-events-none sm:px-6 lg:px-8"
+    >
       <div class="flex xl:justify-end">
         <a
           href="#top"
-          class="z-50 flex items-center justify-center block w-16 h-16 text-white rounded-full bg-purple"
+          class="z-50 flex items-center justify-center block w-16 h-16 text-white rounded-full pointer-events-auto bg-purple"
         >
           <svg
             class="inline w-8 stroke-current stroke-2"
