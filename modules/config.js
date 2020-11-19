@@ -85,7 +85,7 @@ const config = {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: `${this.baseUrl}/images/generic-social-card.png`,
+        content: `${this.baseUrl}/images/Vonage-learn.png`,
       },
       {
         hid: 'twitter:image:width',
@@ -116,7 +116,7 @@ const config = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: `${this.baseUrl}/images/generic-social-card.png`,
+        content: `${this.baseUrl}/images/Vonage-learn.png`,
       },
       {
         hid: 'og:image:width',

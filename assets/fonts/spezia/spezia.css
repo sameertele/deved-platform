@@ -9,6 +9,7 @@
 	font-style: normal;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }
 
 @font-face {
@@ -22,6 +23,7 @@
 	font-style: italic;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }
 
 @font-face {
@@ -35,6 +37,7 @@
 	font-style: normal;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }
 
 @font-face {
@@ -48,6 +51,7 @@
 	font-style: italic;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }
 
 @font-face {
@@ -61,6 +65,7 @@
 	font-style: normal;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }
 
 @font-face {
@@ -74,6 +79,7 @@
 	font-style: normal;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }
 
 @font-face {
@@ -87,6 +93,7 @@
 	font-style: normal;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }
 
 @font-face {
@@ -100,4 +107,5 @@
 	font-style: italic;
 	font-stretch: normal;
 	unicode-range: U+000D-FB04;
+	font-display: swap;
 }

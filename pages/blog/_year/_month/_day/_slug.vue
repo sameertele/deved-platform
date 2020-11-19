@@ -5,7 +5,7 @@
       class="grid grid-cols-1 gap-y-6 md:gap-6 md:grid-cols-4 xl:grid-cols-5"
     >
       <aside
-        class="static xl:sticky top-4 col-span-1 row-span-2 bg-white rounded-lg shadow p-4"
+        class="static col-span-1 row-span-2 p-4 bg-white rounded-lg shadow xl:sticky top-4"
       >
         <Author :author="post.author" type="card" />
       </aside>
@@ -29,7 +29,7 @@
             <main class="mt-4 text-grey-darker">
               <div
                 v-if="post.updated_at"
-                class="truncate text-sm mb-2"
+                class="mb-2 text-sm truncate"
                 property="dateModified"
                 :content="post.updated_at"
               >
@@ -40,7 +40,7 @@
                   'text-xs ': !!post.updated_at,
                   'text-sm': !post.updated_at,
                 }"
-                class="truncate mb-4"
+                class="mb-4 truncate"
                 property="datePublished"
                 :content="post.published_at"
               >
@@ -48,7 +48,7 @@
               </div>
               <div class="text-sm text-grey-dark">
                 <svg
-                  class="w-3 inline fill-current"
+                  class="inline w-3 fill-current"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,17 +79,17 @@
             />
           </main>
           <footer class="p-4">
-            <section v-if="post.comments" class="border-t py-4">
+            <section v-if="post.comments" class="py-4 border-t">
               Comments currently disabled.
             </section>
-            <section v-if="post.spotlight" class="border-t pt-4">
+            <section v-if="post.spotlight" class="pt-4 border-t">
               <SpotlightFooter class="spotlight" />
             </section>
           </footer>
         </article>
       </div>
       <aside
-        class="sticky top-4 col-span-1 bg-white rounded-lg shadow p-4 asides"
+        class="sticky col-span-1 p-4 bg-white rounded-lg shadow top-4 asides"
       >
         <section><TableOfContents :toc="post.toc" /></section>
         <section><h4>Related Posts</h4></section>
@@ -178,7 +178,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: `${thumbnail || '/images/generic-social-card.png'}`,
+          content: `${thumbnail || '/images/Vonage-learn.png'}`,
         },
         {
           hid: 'twitter:image:alt',
@@ -203,7 +203,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${thumbnail || '/images/generic-social-card.png'}`,
+          content: `${thumbnail || '/images/Vonage-learn.png'}`,
         },
         {
           hid: 'og:image:alt',
