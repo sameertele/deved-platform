@@ -60,6 +60,16 @@ select.button {
   @apply rounded-full;
 }
 
+.button--round {
+  @apply p-0;
+  @apply rounded-full;
+  @apply h-8;
+  @apply w-8;
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+}
+
 .button--small {
   @apply text-xs;
 }
@@ -69,12 +79,14 @@ select.button {
   @apply text-white;
 }
 
-.button--twitter {
+.button--white {
+  @apply bg-white;
   @apply text-black;
 }
 
-.button--twitter svg {
-  @apply text-brand-twitter;
+.button--twitter {
+  @apply bg-brand-twitter;
+  @apply text-white;
 }
 
 .button--slack {
@@ -83,20 +95,12 @@ select.button {
 }
 
 .button--twitch {
-  @apply bg-brand-twitch-bg;
+  @apply bg-gray-800;
   @apply text-white;
 }
 
 .button--twitch svg {
   @apply text-brand-twitch;
-}
-
-hr.button-spacer {
-  @apply inline-block;
-  @apply border-r;
-  @apply w-px;
-  @apply h-6;
-  @apply mt-1;
 }
 
 .icon-size {

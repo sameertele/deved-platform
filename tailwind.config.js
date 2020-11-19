@@ -33,7 +33,6 @@ module.exports = {
           slack: '#4a154b',
           twitter: '#1da1f2',
           twitch: '#9146FF',
-          'twitch-bg': '#202024',
         },
         orange: {
           lighter: '#fee3dd',

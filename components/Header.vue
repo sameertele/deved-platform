@@ -17,19 +17,13 @@
         <div class="hidden md:block">
           <div class="flex ml-10 space-x-2 items-middle">
             <twitch-social-button
-              class="button--small"
+              class="button button--round button--small button--twitch"
               link="https://twitch.tv/vonagedevs"
             />
-            <slack-social-button
-              class="button--small"
-              link="https://developer.nexmo.com/community/slack"
-            />
             <twitter-social-button
-              class="button--small"
+              class="button button--round button--small button--twitter"
               link="https://twitter.com/VonageDev"
             />
-
-            <hr class="button-spacer" />
 
             <a
               class="button button--pill button--small button--primary"
