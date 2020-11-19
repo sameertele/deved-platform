@@ -42,7 +42,7 @@ export default {
     crumbs() {
       const fullPath = this.$route.fullPath
       const path = fullPath.startsWith('/') ? fullPath.substring(1) : fullPath
-      const params = path.split('?').shift().split('/')
+      const params = path.split('#').shift().split('?').shift().split('/')
       const crumbs = []
 
       let newPath = ''
