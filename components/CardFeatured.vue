@@ -49,7 +49,7 @@
     </main>
     <footer class="flex justify-between py-2 mx-4 mt-2 border-t">
       <Tags :tags="post.tags" />
-      <Category :category="post.categoryObject" class="Category--border" />
+      <Category :category="post.categoryObject" class="text-sm" />
     </footer>
   </article>
 </template>

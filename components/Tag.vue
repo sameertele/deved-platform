@@ -2,7 +2,7 @@
   <component
     :is="link ? 'nuxt-link' : 'span'"
     :to="localePath(`/tags/${slug}`)"
-    class="inline-flex badge"
+    class="inline-flex badge badge--small"
     :class="'badge--' + slug"
     ><svg
       v-if="isProduct"

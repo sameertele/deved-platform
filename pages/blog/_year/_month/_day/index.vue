@@ -33,9 +33,6 @@ export default {
       }
 
       return {
-        day,
-        month,
-        year,
         posts,
       }
     } catch (e) {

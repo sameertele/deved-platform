@@ -1,6 +1,6 @@
 <template>
   <NLink
-    class="text-lg uppercase"
+    class="uppercase"
     :to="localePath(`/categories/${category.slug}`)"
     :style="`color: ${category.color ? category.color : '#000'}`"
   >
