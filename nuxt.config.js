@@ -77,7 +77,13 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['nuxt-i18n', '@nuxt/content', '@nuxtjs/feed', '@nuxtjs/axios'],
+  modules: [
+    'nuxt-i18n',
+    '@nuxt/content',
+    '@nuxtjs/feed',
+    '@nuxtjs/axios',
+    'nuxt-clipboard2',
+  ],
 
   axios: {
     baseURL: 'http://localhost:8888', // Used as fallback if no runtime config is provided

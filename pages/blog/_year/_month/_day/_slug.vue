@@ -16,7 +16,7 @@
         >
           <figure class="overflow-hidden rounded-t-lg">
             <div class="card-figure">
-              <img property="image" :src="post.thumbnail" alt="post.title" />
+              <img property="image" :src="post.thumbnail" :alt="post.title" />
             </div>
           </figure>
           <header class="px-4 my-4">
@@ -273,20 +273,6 @@ export default {
 </script>
 
 <style scoped>
-.nuxt-content .nuxt-content-highlight {
-  margin: 0 -30px;
-}
-
-.nuxt-content .nuxt-content-highlight pre {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.nuxt-content img {
-  @apply rounded-lg;
-  margin: 0 auto;
-}
-
 .spotlight >>> img {
   @apply rounded-lg;
   @apply mx-auto;

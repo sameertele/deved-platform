@@ -1,27 +1,13 @@
 <template>
-  <section class="Blog__Full-width">
-    <header class="Blog__Full-width">
-      <HeroPage class="Category-hero">
-        <Category :category="category" plural />
-      </HeroPage>
-    </header>
-    <main class="Vlt-container">
-      <div class="Vlt-grid">
-        <div class="Vlt-col" />
-        <div class="Vlt-col Vlt-col--2of3">
-          <Breadcrumbs />
-        </div>
-        <div class="Vlt-col" />
-        <div class="Vlt-grid__separator" />
-        <Card v-for="post in posts" :key="post.route" :post="post" />
-      </div>
-    </main>
-  </section>
+  <main class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+    <Breadcrumbs />
+    <section class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Card v-for="(post, i) in posts" :key="i" :post="post" />
+    </section>
+  </main>
 </template>
 
 <script>
-import config from '~/modules/config'
-
 export default {
   async asyncData({ $content, app, params, error }) {
     try {
@@ -33,7 +19,6 @@ export default {
           $and: [{ category: category.slug }, { published: { $ne: false } }],
         })
         .sortBy('published_at', 'desc')
-        .limit(config.postsPerPage)
         .fetch()
 
       if (posts.length === 0) {
