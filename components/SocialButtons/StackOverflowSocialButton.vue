@@ -1,19 +1,26 @@
 <template>
   <a
     v-if="!!link"
-    class="Vlt-btn Vlt-btn--tertiary"
-    :class="{ 'Vlt-btn--icon': !hasDefaultSlot }"
+    class="inline-block"
     :href="`${link}?utm_source=blog&utm_medium=deved&utm_campaign=stackoverflow-social-link`"
     target="_blank"
     rel="noreferrer"
   >
-    Brand-icon-stackoverflow-color.svg
+    <StackOverflowIcon
+      class="inline fill-current icon-size"
+      :class="{ 'mr-2': hasDefaultSlot }"
+    />
     <slot />
   </a>
 </template>
 
 <script>
+import { StackOverflowIcon } from 'vue-simple-icons'
+
 export default {
+  components: {
+    StackOverflowIcon,
+  },
   props: {
     link: {
       type: String,

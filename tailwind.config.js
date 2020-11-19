@@ -106,6 +106,9 @@ module.exports = {
           darker: '#035879',
         },
       },
+      zIndex: {
+        '-10': '-10',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

@@ -98,3 +98,8 @@ hr.button-spacer {
   @apply h-6;
   @apply mt-1;
 }
+
+.icon-size {
+  width: 1em;
+  height: 1em;
+} 

@@ -1,13 +1,13 @@
 <template>
   <a
     v-if="!!link"
-    class="button button--pill button--slack"
+    class="inline-block"
     :href="`${link}?utm_source=blog&utm_medium=deved&utm_campaign=slack-social-link`"
     target="_blank"
     rel="noreferrer"
   >
     <SlackIcon
-      class="w-4 h-4 fill-current"
+      class="inline fill-current icon-size"
       :class="{ 'mr-2': hasDefaultSlot }"
     />
     <slot />

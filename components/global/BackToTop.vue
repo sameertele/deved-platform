@@ -1,16 +1,16 @@
 <template>
   <div
     :class="{ 'opacity-100': showButton, 'opacity-0': !showButton }"
-    class="w-screen fixed bottom-0 mb-16 inset-x-auto z-50 transition-opacity duration-500 ease-in-out"
+    class="fixed inset-x-auto bottom-0 w-screen mb-16 transition-opacity duration-500 ease-in-out"
   >
     <div class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
       <div class="flex xl:justify-end">
         <a
           href="#top"
-          class="block bg-purple rounded-full h-16 w-16 flex items-center justify-center text-white"
+          class="z-50 flex items-center justify-center block w-16 h-16 text-white rounded-full bg-purple"
         >
           <svg
-            class="w-8 inline stroke-current stroke-2"
+            class="inline w-8 stroke-current stroke-2"
             role="img"
             fill="none"
             viewBox="0 0 24 24"

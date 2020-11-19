@@ -67,23 +67,26 @@ export default {
 
 <style scoped>
 li:after {
-  content: ' » ';
-  display: inline;
-  font-size: 0.9em;
-  color: #aaa;
-
-  padding: 0 0.0725em 0 0.15em;
+  content: '»';
+  @apply inline;
+  @apply text-xs;
+  @apply text-grey;
 }
 
 li:last-child:after {
   content: '';
 }
 
+li:not(:first-child) a {
+  @apply pl-1;
+}
+
 li a {
-  color: black;
+  @apply text-grey-darker;
+  @apply pr-1;
 }
 
 li a.nuxt-link-exact-active.nuxt-link-active {
-  color: grey;
+  @apply text-grey-dark;
 }
 </style>

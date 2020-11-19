@@ -8,7 +8,7 @@
         :class="`link--level${link.depth} ${
           activeLink && activeLink.id === link.id ? 'link--active' : ''
         }`"
-        class="truncate text-xs py-2"
+        class="py-2 text-xs truncate"
       >
         <nuxt-link :to="`#${link.id}`">{{ link.text }}</nuxt-link>
       </li>
@@ -83,7 +83,7 @@ export default {
     linkActive(el) {
       let top = el.offsetTop
       const height = el.offsetHeight
-      const halfWindow = window.innerHeight / 2
+      const halfWindow = window.innerHeight / 3
 
       while (el.offsetParent) {
         el = el.offsetParent
@@ -105,7 +105,7 @@ li:not(:first-child) {
 }
 
 li {
-  @apply pl-2;
+  @apply px-2;
 }
 
 li.link--active {

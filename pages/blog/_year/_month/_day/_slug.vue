@@ -4,9 +4,7 @@
     <section
       class="grid grid-cols-1 gap-y-6 md:gap-6 md:grid-cols-4 xl:grid-cols-5"
     >
-      <aside
-        class="static col-span-1 row-span-2 p-4 bg-white rounded-lg shadow xl:sticky top-4"
-      >
+      <aside class="static col-span-1 row-span-2">
         <Author :author="post.author" type="card" />
       </aside>
       <div class="col-span-3 row-span-5">
@@ -92,7 +90,12 @@
         class="sticky col-span-1 p-4 bg-white rounded-lg shadow top-4 asides"
       >
         <section><TableOfContents :toc="post.toc" /></section>
-        <section><h4>Related Posts</h4></section>
+        <section>
+          <RelatedPosts
+            :slug="post.slug"
+            :terms="[...post.tags, post.category]"
+          />
+        </section>
       </aside>
     </section>
   </main>
@@ -285,7 +288,7 @@ export default {
   @apply mb-4;
 }
 
-.asides section:not(:first-child) {
+.asides section:not(:first-child) >>> h4 {
   @apply mt-4;
 }
 
