@@ -89,7 +89,12 @@
       <aside
         class="sticky col-span-1 p-4 bg-white rounded-lg shadow top-4 asides"
       >
-        <section><TableOfContents :toc="post.toc" /></section>
+        <section>
+          <TableOfContents
+            :toc="post.toc"
+            :levels="post.toc.length > 10 ? [2] : [2, 3]"
+          />
+        </section>
         <section>
           <RelatedPosts
             :slug="post.slug"

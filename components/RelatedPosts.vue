@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import config from '~/modules/config'
+
 export default {
   props: {
     terms: {
@@ -39,12 +41,22 @@ export default {
   },
 
   async fetch() {
+    const terms = this.terms.map((t) => {
+      const tagInMap = Object.entries(config.tagMap).map(([k, m]) =>
+        m.includes(t) ? [k, ...m] : []
+      )
+      const mapInTag = config.tagMap[t] ? config.tagMap[t] : []
+
+      return [...this.terms, ...tagInMap, ...mapInTag].flat()
+    })
+
     try {
       this.relatedPosts = await this.$content(`blog`, { deep: true })
+        .only(['title', 'locale', 'route'])
         .where({
           $and: [
             { slug: { $ne: this.slug } },
-            { tags: { $containsAny: this.terms } },
+            { tags: { $containsAny: terms.flat() } },
             { published: { $ne: false } },
           ],
         })
@@ -52,18 +64,25 @@ export default {
         .limit(3)
         .fetch()
 
-      if (this.relatedPosts.length === 0) {
-        this.relatedPosts = await this.$content(`blog`, { deep: true })
+      if (this.relatedPosts.length < 3) {
+        const morePosts = await this.$content(`blog`, { deep: true })
+          .only(['title', 'locale', 'route'])
           .where({
             $and: [
-              { slug: { $ne: this.slug } },
-              { category: { $in: this.terms } },
+              {
+                slug: {
+                  $nin: [this.slug, ...this.relatedPosts.map((t) => t.slug)],
+                },
+              },
+              { category: { $in: terms.flat() } },
               { published: { $ne: false } },
             ],
           })
           .sortBy('published_at', 'desc')
-          .limit(3)
+          .limit(3 - this.relatedPosts.length)
           .fetch()
+
+        this.relatedPosts = this.relatedPosts.concat(morePosts)
       }
     } catch (error) {
       console.error(error)

@@ -35,19 +35,12 @@ export default {
       pos: 0,
       links: [],
       activeLink: undefined,
-      // updateHash: null,
     }
   },
 
   watch: {
     pos(value) {
       if (process.client) {
-        // window.clearTimeout(this.updateHash)
-
-        // this.updateHash = window.setTimeout(() => {
-        //   window.location.hash = this.activeLink.id
-        // }, 1000)
-
         this.links = this.links.map((link, key) => {
           const title = document.getElementById(link.id)
           return {
@@ -83,13 +76,13 @@ export default {
     linkActive(el) {
       let top = el.offsetTop
       const height = el.offsetHeight
-      const halfWindow = window.innerHeight / 3
 
       while (el.offsetParent) {
         el = el.offsetParent
         top += el.offsetTop
       }
-      return top - (halfWindow + height) < window.pageYOffset
+
+      return top - height < window.pageYOffset
     },
 
     handleScroll() {

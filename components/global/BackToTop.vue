@@ -9,7 +9,11 @@
       <div class="flex xl:justify-end">
         <a
           href="#top"
-          class="z-50 flex items-center justify-center block w-16 h-16 text-white rounded-full pointer-events-auto bg-purple"
+          :class="{
+            'pointer-events-auto': showButton,
+            'pointer-events-none': !showButton,
+          }"
+          class="z-50 flex items-center justify-center w-16 h-16 text-white rounded-full bg-purple-dark hover:bg-purple"
         >
           <svg
             class="inline w-8 stroke-current stroke-2"
