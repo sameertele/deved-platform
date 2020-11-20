@@ -1,21 +1,10 @@
 <template>
   <client-only>
-    <div class="Vlt-grid Redirector Vlt-grid--stack-flush">
-      <div class="Vlt-card Vlt-card--lesspadding" property="mainEntityOfPage">
-        <div
-          class="Vlt-card__image"
-          :style="{
-            height: '200px',
-            background: `white url('${require('../../assets/images/Globe.png')}') no-repeat scroll 50% 50%`,
-            'background-size': 'contain',
-          }"
-        ></div>
-        <div class="Vlt-card__content Vlt-center">
-          Redirecting in {{ seconds }}... <br /><a :href="url">Click here</a> to
-          redirect now.
-        </div>
-      </div>
-    </div>
+    <blockquote class="p-4 border-l-2 border-purple-dark bg-purple-lighter">
+      We're still migrating this post. We're going to redirect you to our old
+      site in the meantime. Redirecting in {{ seconds }}...
+      <a :href="url" class="text-purple-dark">Click here to redirect now.</a>
+    </blockquote>
   </client-only>
 </template>
 
@@ -62,10 +51,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Redirector {
-  max-width: 280px;
-  margin: 50px auto;
-}
-</style>

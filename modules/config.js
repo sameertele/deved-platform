@@ -26,11 +26,13 @@ const config = {
   postsPerPage: 12,
   repoUrl:
     process.env.REPOSITORY_URL || 'https://github.com/Nexmo/deved-platform',
-  repoBranch: process.env.HEAD || 'main',
+  repoBranch: process.env.HEAD || process.env.GIT_BRANCH || 'main',
   algoliaApplicationId: process.env.ALGOLIA_APPLICATION_ID,
   algoliaSearchKey: process.env.ALGOLIA_SEARCH_KEY,
   algoliaIndex: process.env.ALGOLIA_INDEX,
   signer: process.env.SIGNING_SECRET || 'secret',
+  nodeEnv: process.env.NODE_ENV || 'development',
+  netlifyContext: process.env.CONTEXT || null,
   tagMap: {
     voyagers: ['vonage-voyagers'],
     careers: ['career'],

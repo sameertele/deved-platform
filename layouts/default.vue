@@ -1,6 +1,6 @@
 <template>
   <div class="bg-grey-lighter">
-    <DemoBar v-if="isDemo" :link="demoLink" />
+    <DeployContext :env="env" />
     <Header />
     <Nuxt />
     <Footer />
@@ -37,12 +37,14 @@ export default {
   },
 
   computed: {
-    isDemo() {
-      return process.env.demo !== null
-    },
-
-    demoLink() {
-      return process.env.demo
+    env() {
+      return {
+        nodeEnv: process.env.nodeEnv,
+        netlifyContext: process.env.netlifyContext,
+        netlifyHead: process.env.netlifyHead,
+        previewRoute: process.env.previewRoute,
+        repoUrl: process.env.repoUrl,
+      }
     },
   },
 

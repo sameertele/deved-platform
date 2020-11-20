@@ -2,7 +2,6 @@
   <div v-if="!$fetchState.pending">
     <AuthorBubble v-if="type == 'bubble'" :author="authorData" />
     <AuthorCard v-else-if="type == 'card'" :author="authorData" />
-    <AuthorMiniCard v-else-if="type == 'minicard'" :author="authorData" />
     <AuthorName v-else-if="type == 'name'" :author="authorData" />
     <AuthorPage v-else-if="type == 'page'" :author="authorData" />
   </div>
@@ -19,7 +18,7 @@ export default {
       type: String,
       default: 'name',
       validator(value) {
-        return ['name', 'minicard', 'card', 'page', 'bubble'].includes(value)
+        return ['name', 'card', 'page', 'bubble'].includes(value)
       },
     },
   },

@@ -43,8 +43,6 @@ div.nuxt-progress {
   @apply py-2;
   @apply px-4;
   @apply rounded;
-  @apply bg-grey-light;
-  @apply text-black;
   @apply inline-flex;
   @apply items-center;
   @apply text-sm;

@@ -66,9 +66,12 @@
               />
             </footer>
           </header>
-          <main class="px-4 my-4">
+          <main v-if="!post.redirect" class="px-4 my-4">
             <section v-if="post.spotlight" class="mb-4">
               <Spotlight class="spotlight" />
+            </section>
+            <section v-if="post.outdated || post.replacement_url">
+              <Outdated :url="post.replacement_url" />
             </section>
             <nuxt-content
               property="articleBody"
@@ -76,7 +79,10 @@
               :document="post"
             />
           </main>
-          <footer class="p-4">
+          <main v-else class="px-4 py-4">
+            <Redirector :url="post.redirect" />
+          </main>
+          <footer v-if="!post.redirect" class="p-4">
             <section v-if="post.comments" class="py-4 border-t">
               Comments currently disabled.
             </section>
@@ -89,7 +95,7 @@
       <aside
         class="sticky col-span-1 p-4 bg-white rounded-lg shadow top-4 asides"
       >
-        <section>
+        <section v-if="post.toc.length > 0">
           <TableOfContents
             :toc="post.toc"
             :levels="post.toc.length > 10 ? [2] : [2, 3]"

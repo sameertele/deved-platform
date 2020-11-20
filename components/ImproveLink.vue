@@ -2,7 +2,6 @@
   <a
     :href="`${repoUrl}/blob/${repoBranch}/content${post.path}${post.extension}`"
     target="_blank"
-    class="Vlt-text-link"
   >
     Please help improve this article</a
   >
@@ -25,10 +24,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Vlt-icon {
-  margin-right: 0.2em;
-  height: 1em;
-}
-</style>

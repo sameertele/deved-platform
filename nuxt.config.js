@@ -11,15 +11,17 @@ const isPreviewBuild = () => {
 }
 
 const previewRoute = () => {
-  const [, type, slug] = process.env.HEAD.split('/')
-  const today = new Date()
+  if (process.env.HEAD) {
+    const [, type, slug] = process.env.HEAD.split('/')
+    const today = new Date()
 
-  if (type === 'blog') {
-    return `/${type}/${today.getFullYear()}/${('0' + today.getMonth()).slice(
-      -2
-    )}/${('0' + today.getDay()).slice(-2)}/${slug}`
-  } else {
-    return null
+    if (type === 'blog') {
+      return `/${type}/${today.getFullYear()}/${('0' + today.getMonth()).slice(
+        -2
+      )}/${('0' + today.getDay()).slice(-2)}/${slug}`
+    } else {
+      return null
+    }
   }
 }
 
@@ -29,7 +31,11 @@ export default {
 
   // Env (https://nuxtjs.org/api/configuration-env/)
   env: {
-    demo: isPreviewBuild() ? previewRoute() : null,
+    nodeEnv: config.nodeEnv,
+    netlifyContext: config.netlifyContext,
+    netlifyHead: config.repoBranch,
+    previewRoute: previewRoute(),
+    isPreviewBuild: isPreviewBuild(),
     signer: config.signer,
     baseUrl: config.baseUrl,
     repoUrl: config.repoUrl,
