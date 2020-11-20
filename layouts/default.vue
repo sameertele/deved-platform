@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-grey-lighter">
+  <div>
     <DeployContext :env="env" />
     <Header />
     <Nuxt />

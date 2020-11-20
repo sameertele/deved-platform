@@ -28,8 +28,16 @@
             {{ post.title }}
           </nuxt-link>
         </h3>
-        <Tags class="mt-2 text-sm font-medium" :tags="post.tags" />
       </header>
+      <footer class="flex flex-col items-left">
+        <Tags class="mt-3 text-sm font-medium" :tags="post.tags" />
+        <div class="flex mt-3 space-x-1 text-sm text-gray-500">
+          <time datetime="2020-03-16">
+            {{ post.published_at | moment('MMM D, YYYY') }}
+          </time>
+          <ReadingTime :reading-time="post.readingTime" />
+        </div>
+      </footer>
     </section>
   </article>
 </template>
