@@ -5,11 +5,11 @@
     <main class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
       <section class="index-section">
         <h2>
-          <NLink :to="localePath('/blog')">
+          <nuxt-link :to="localePath('/blog')">
             {{ $t('page_index_latest_posts') }}
-          </NLink>
+          </nuxt-link>
         </h2>
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <CardFeatured
             v-for="(post, i) in latestPosts"
             :key="i"
@@ -24,9 +24,9 @@
           class="index-section"
         >
           <h2>
-            <NLink :to="localePath(`/categories/${category.slug}`)">
+            <nuxt-link :to="localePath(`/categories/${category.slug}`)">
               {{ category.plural }}
-            </NLink>
+            </nuxt-link>
           </h2>
           <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card v-for="(post, k) in category.posts" :key="k" :post="post" />
@@ -69,45 +69,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.index-section > h2 {
-  @apply my-4;
-  @apply text-sm;
-  @apply font-light;
-  @apply text-center;
-  @apply uppercase;
-  @apply text-grey-dark;
-  @apply relative;
-  @apply z-20;
-  @apply tracking-widest;
-}
-
-@screen md {
-  .index-section > h2 {
-    @apply my-10;
-  }
-}
-
-.index-section > h2:before {
-  @apply border-t;
-  @apply border-grey-light;
-  @apply my-0;
-  @apply mx-auto;
-  @apply absolute;
-  @apply left-0;
-  @apply right-0;
-  @apply bottom-0;
-  @apply w-11/12;
-  z-index: -1;
-  content: '';
-  top: 50%;
-}
-
-.index-section > h2 > a {
-  @apply bg-grey-lighter;
-  @apply z-10;
-  @apply py-0;
-  @apply px-4;
-}
-</style>

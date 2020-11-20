@@ -100,225 +100,224 @@ export default {
 .badge--video-api,
 .badge--sms-api,
 .badge--station {
-  background: #000;
-  color: #fff;
+  background: black;
+  color: white;
+}
+.badge--spotlight {
+  background-color: rgba(135, 31, 255, 1);
+  color: white;
+}
+
+.badge--voyagers {
+  background-color: rgba(135, 31, 255, 1);
+  color: white;
 }
 
 .badge--slack {
-  background: #4a154b;
-  color: #fff;
+  background: rgba(74, 21, 75, 0.4);
+  color: black;
 }
 
 .badge--faunadb {
-  background: #323fcb;
-  color: #fff;
+  background: rgba(50, 63, 203, 0.4);
+  color: black;
 }
 
 .badge--vue {
-  background-color: #41b883;
-  color: #35495e;
+  background-color: rgba(65, 184, 131, 0.4);
+  color: rgba(53, 73, 94, 1);
 }
 
 .badge--nuxt {
-  background-color: #00c58e;
-  color: #ffffff;
+  background-color: rgba(0, 197, 142, 0.4);
+  color: black;
 }
 
 .badge--ruby-on-rails,
 .badge--ruby {
-  background-color: #cc342d;
-  color: #fff;
+  background-color: rgba(204, 52, 45, 0.4);
+  color: black;
 }
 
 .badge--javascript {
-  background-color: #f7df1e;
-  color: #000000;
+  background-color: rgba(247, 223, 30, 0.4);
+  color: black;
 }
 
 .badge--typescript {
-  background-color: #3178c6;
-  color: #fff;
+  background-color: rgba(49, 120, 198, 0.4);
+  color: black;
 }
 
 .badge--dotnet {
-  background-color: #5d2590;
-  color: #fff;
+  background-color: rgba(93, 37, 144, 0.4);
+  color: black;
 }
 
 .badge--node {
-  background-color: #3d8836;
-  color: #fff;
+  background-color: rgba(61, 136, 54, 0.4);
+  color: black;
 }
 
 .badge--deno {
-  background: #161e2e;
-  color: #fff;
+  background: rgba(22, 30, 46, 0.4);
+  color: black;
 }
 
 .badge--node-red {
-  background-color: #8e0100;
-  color: #fff;
+  background-color: rgba(142, 1, 0, 0.4);
+  color: black;
 }
 
 .badge--azure {
-  background-color: #007fff;
-  color: #fff;
+  background-color: rgba(0, 127, 255, 0.4);
+  color: black;
 }
 
 .badge--zapier {
-  background-color: #ff4a00;
-  color: #fff;
+  background-color: rgba(255, 74, 0, 0.4);
+  color: black;
 }
 
 .badge--go {
   @apply shadow-inner;
-  background-color: #e0ebf5;
-  color: #043c6f;
-}
-
-.badge--spotlight {
-  background-color: #871fff;
-  color: #fff;
-}
-
-.badge--voyagers {
-  background-color: #871fff;
-  color: #fff;
+  background-color: rgba(224, 235, 245, 0.4);
+  color: black;
 }
 
 .badge--php {
-  background-color: #23a1aa;
-  color: #fff;
+  background-color: rgba(35, 161, 170, 0.4);
+  color: black;
 }
 
 .badge--aws {
-  background-color: #212b3a;
-  color: #faaf34;
+  background-color: rgba(33, 43, 58, 0.4);
+  color: black;
 }
 
 .badge--firebase {
-  background-color: #ffca28;
-  color: #2c384a;
+  background-color: rgba(255, 202, 40, 0.4);
+  color: black;
 }
 
 .badge--zendesk {
-  background-color: #03363d;
-  color: #f8f9f9;
-}
-
-.badge--zendesk {
-  background-color: #03363d;
-  color: #f8f9f9;
+  background-color: rgba(3, 54, 61, 0.4);
+  color: black;
 }
 
 .badge--ibm-watson {
-  background-color: #0062ff;
-  color: #ffffff;
+  background-color: rgba(0, 98, 255, 0.4);
+  color: black;
 }
 
 .badge--git {
-  background-color: #f14e32;
-  color: #ffffff;
+  background-color: rgba(241, 78, 50, 0.4);
+  color: black;
 }
 
 .badge--github {
   content: 'GitHub';
-  background-color: #333333;
-  color: #ffffff;
+  background-color: rgba(51, 51, 51, 0.4);
+  color: black;
 }
 
 .badge--hacktoberfest {
-  background-color: #072540;
-  color: #ffffff;
+  background-color: rgba(7, 37, 64, 0.4);
+  color: black;
 }
 
 .badge--digitalocean {
-  background-color: #0069ff;
-  color: #ffffff;
+  background-color: rgba(0, 105, 255, 0.4);
+  color: black;
 }
 
 .badge--java {
-  background-color: #01476e;
-  color: #ff8f8f;
+  background-color: rgba(1, 71, 110, 0.4);
+  color: black;
 }
 
 .badge--python {
-  background-color: #1e38bb;
-  color: #ffdf5b;
+  background-color: rgba(30, 56, 187, 0.4);
+  color: black;
 }
 
 .badge--mongodb {
-  background-color: #13aa52;
-  color: #ffffff;
+  background-color: rgba(19, 170, 82, 0.4);
+  color: black;
 }
 
 .badge--netlify {
-  background: linear-gradient(to bottom, #23c2b8, #37afbc);
-  color: white;
+  background: linear-gradient(
+    to bottom,
+    rgba(35, 194, 184, 0.4),
+    rgba(55, 175, 188, 0.4)
+  );
+  color: black;
 }
 
 .badge--postman {
-  background: rgb(255, 108, 55);
-  color: white;
+  background: rgba(255, 108, 55, 0.4);
+  color: black;
 }
 
 .badge--opensource {
-  background: #3da639;
-  color: white;
+  background: rgba(61, 166, 57, 0.4);
+  color: black;
 }
 
 .badge--react-native,
 .badge--react {
-  background: #61dafb;
+  background: rgba(97, 218, 251, 0.4);
   color: black;
 }
 
 .badge--open-api {
-  background: #38b832;
-  color: #ffffff;
+  background: rgba(56, 184, 50, 0.4);
+  color: black;
 }
 
 .badge--inclusion {
   background: linear-gradient(
     90deg,
-    #000000,
-    #000000 12.5%,
-    #754d15 12.5%,
-    #754d15 25%,
-    #f00000 25%,
-    #f00000 37.5%,
-    #ff8000 37.5%,
-    #ff8000 50%,
-    #ffff00 50%,
-    #ffff00 62.5%,
-    #007940 62.5%,
-    #007940 75%,
-    #4040ff 75%,
-    #4040ff 87.5%,
-    #a000c0 87.5%,
-    #a000c0
+    black,
+    black 12.5%,
+    rgba(117, 77, 21, 1) 12.5%,
+    rgba(117, 77, 21, 1) 25%,
+    rgba(240, 0, 0, 1) 25%,
+    rgba(240, 0, 0, 1) 37.5%,
+    rgba(255, 128, 0, 1) 37.5%,
+    rgba(255, 128, 0, 1) 50%,
+    rgba(255, 255, 0, 1) 50%,
+    rgba(255, 255, 0, 1) 62.5%,
+    rgba(0, 121, 64, 1) 62.5%,
+    rgba(0, 121, 64, 1) 75%,
+    rgba(64, 64, 255, 1) 75%,
+    rgba(64, 64, 255, 1) 87.5%,
+    rgba(160, 0, 192, 1) 87.5%,
+    rgba(160, 0, 192, 1)
   );
   color: white;
-  text-shadow: 1px 1px 2px #00000080, -1px -1px 2px #00000080,
-    -1px 1px 2px #00000080, 1px -1px 2px #00000080;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.5),
+    -1px 1px 2px rgba(0, 0, 0, 0.5), 1px -1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .badge--diversity {
   background: linear-gradient(
     90deg,
-    #55cdfc,
-    #55cdfc 20%,
-    #f7a8b8 20%,
-    #f7a8b8 40%,
-    #fff 40%,
-    #fff 60%,
-    #f7a8b8 60%,
-    #f7a8b8 80%,
-    #55cdfc 80%,
-    #55cdfc 100%
+    rgba(85, 205, 252, 1),
+    rgba(85, 205, 252, 1) 20%,
+    rgba(247, 168, 184, 1) 20%,
+    rgba(247, 168, 184, 1) 40%,
+    white 40%,
+    white 60%,
+    rgba(247, 168, 184, 1) 60%,
+    rgba(247, 168, 184, 1) 80%,
+    rgba(85, 205, 252, 1) 80%,
+    rgba(85, 205, 252, 1) 100%
   );
   color: black;
-  text-shadow: 1px 1px 2px #ffffff80, -1px -1px 2px #ffffff80,
-    -1px 1px 2px #ffffff80, 1px -1px 2px #ffffff80;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5),
+    -1px -1px 2px rgba(255, 255, 255, 0.5),
+    -1px 1px 2px rgba(255, 255, 255, 0.5), 1px -1px 2px rgba(255, 255, 255, 0.5);
 }
 </style>

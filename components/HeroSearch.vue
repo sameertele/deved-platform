@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white shadow">
+  <header class="bg-white shadow-lg">
     <section
       class="flex flex-col items-center justify-center h-32 max-w-screen-xl px-4 mx-auto text-center flex-nowrap md:h-64 search-hero sm:px-6 lg:px-8"
     >

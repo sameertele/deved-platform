@@ -2,7 +2,7 @@
   <footer class="text-white bg-black">
     <div class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
       <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+        class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
       >
         <div>
           <h4>
@@ -72,32 +72,11 @@
           </ul>
         </div>
         <div>
-          <h4>{{ $t('component_footer_corporate') }}</h4>
+          <h4>Content</h4>
           <ul>
-            <li>
-              <a
-                href="https://ir.vonage.com/"
-                target="_blank"
-                rel="noreferrer"
-                >{{ $t('component_footer_investors') }}</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.vonage.com/events/?icmp=footer_corporate_events"
-                target="_blank"
-                rel="noreferrer"
-                >{{ $t('component_footer_events') }}</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.vonage.com/careers/?icmp=footer_corporate_careers"
-                target="_blank"
-                rel="noreferrer"
-                >{{ $t('component_footer_careers') }}</a
-              >
-            </li>
+            <li><nuxt-link to="/authors">Authors</nuxt-link></li>
+            <li><nuxt-link to="/blog">Blog Posts</nuxt-link></li>
+            <li><nuxt-link to="/blog/spotlight">Spotlight Posts</nuxt-link></li>
           </ul>
         </div>
         <div>
@@ -213,8 +192,12 @@ export default {
 
 <style scoped>
 footer {
-  @apply mt-32;
-  @apply py-32;
+  @apply mt-12;
+  @apply py-12;
+  @apply sm:mt-24;
+  @apply sm:py-24;
+  @apply md:mt-36;
+  @apply md:py-36;
 }
 
 h4 {

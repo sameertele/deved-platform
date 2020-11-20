@@ -106,13 +106,15 @@ select.button {
   height: 1em;
 }
 
-.nuxt-content .nuxt-content-highlight {
-  margin: 0 -30px;
-}
+@screen md {
+  .nuxt-content .nuxt-content-highlight {
+    margin: 0 -30px;
+  }
 
-.nuxt-content .nuxt-content-highlight pre {
-  padding-left: 30px;
-  padding-right: 30px;
+  .nuxt-content .nuxt-content-highlight pre {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .nuxt-content img {
@@ -122,4 +124,61 @@ select.button {
 
 .nuxt-content p a {
   @apply text-purple-dark;
+}
+
+.index-section > h2 {
+  @apply my-4;
+  @apply text-sm;
+  @apply font-light;
+  @apply text-center;
+  @apply uppercase;
+  @apply text-grey-dark;
+  @apply relative;
+  @apply z-20;
+  @apply tracking-widest;
+}
+
+@screen md {
+  .index-section > h2 {
+    @apply my-10;
+  }
+}
+
+.index-section > h2:before {
+  @apply border-t;
+  @apply border-grey-light;
+  @apply my-0;
+  @apply mx-auto;
+  @apply absolute;
+  @apply left-0;
+  @apply right-0;
+  @apply bottom-0;
+  @apply w-11/12;
+  z-index: -1;
+  content: '';
+  top: 50%;
+}
+
+.index-section > h2 > span,
+.index-section > h2 > a {
+  @apply bg-grey-lighter;
+  @apply z-10;
+  @apply py-0;
+  @apply px-4;
+}
+
+.card-figure {
+  @apply block;
+  @apply w-full;
+  @apply overflow-hidden;
+}
+
+.card-figure img {
+  @apply object-cover;
+  @apply object-center;
+  @apply h-24;
+  @apply sm:h-36;
+  @apply md:h-48;
+  @apply lg:h-64;
+  @apply w-full;
 }

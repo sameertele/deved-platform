@@ -5,7 +5,7 @@
       class="grid grid-flow-row-dense grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3"
     >
       <Author :author="author" type="page" class="row-span-3" />
-      <Card
+      <CardAuthor
         v-for="(post, index) in posts"
         :key="index"
         :post="post"

@@ -1,6 +1,6 @@
 <template>
-  <article class="overflow-hidden bg-white rounded-lg shadow">
-    <figure>
+  <article class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+    <figure class="flex-shrink-0">
       <nuxt-link
         :to="localePath(post.route, post.locale)"
         class="card-figure"
@@ -9,48 +9,55 @@
         <img :src="post.thumbnail" alt="post.title" />
       </nuxt-link>
     </figure>
-    <header class="px-4 my-4">
-      <h3 class="flex text-xl font-medium">
-        <svg
-          v-if="post.redirect"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          class="w-6 h-6 mr-2"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="{2}"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-          />
-        </svg>
-        <NLink
-          class="truncate"
-          :to="localePath(post.route, post.locale)"
-          :title="post.title"
-        >
-          {{ post.title }}
-        </NLink>
-      </h3>
-    </header>
-    <main
-      class="flex flex-col px-4 text-xs sm:flex-row sm:space-x-1 text-grey-darker"
-    >
-      <div class="flex space-x-1">
-        <span>Published</span>
-        <strong>{{ post.published_at | moment('dddd, MMMM Do YYYY') }}</strong>
-      </div>
-      <div class="flex space-x-1">
-        <span>by</span>
-        <Author :author="post.author" type="name" />
-      </div>
-    </main>
-    <footer class="flex justify-between py-2 mx-4 mt-2 border-t">
-      <Tags :tags="post.tags" />
-      <Category :category="post.categoryObject" class="text-sm" />
-    </footer>
+    <section class="flex flex-col justify-between flex-1 p-6 bg-white">
+      <header class="flex-1">
+        <p class="text-sm font-medium">
+          <Category :category="post.categoryObject" class="text-sm" />
+        </p>
+        <h3 class="block mt-2 text-lg">
+          <svg
+            v-if="post.redirect"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="inline-block mr-1 stroke-current stroke-2 icon-size"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="{2}"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+          <nuxt-link
+            :to="localePath(post.route, post.locale)"
+            :title="post.title"
+          >
+            {{ post.title }}
+          </nuxt-link>
+        </h3>
+      </header>
+      <footer class="flex items-center mt-6">
+        <div class="flex-shrink-0">
+          <span class="sr-only"
+            ><Author :author="post.author" type="name"
+          /></span>
+          <Author :author="post.author" type="img" />
+        </div>
+        <div class="ml-3">
+          <p class="text-sm font-medium text-gray-900">
+            <Author :author="post.author" type="name" />
+          </p>
+          <div class="flex space-x-1 text-sm text-gray-500">
+            <time datetime="2020-03-16">
+              {{ post.published_at | moment('MMM D, YYYY') }}
+            </time>
+            <ReadingTime :reading-time="post.readingTime" />
+          </div>
+        </div>
+      </footer>
+    </section>
   </article>
 </template>
 
@@ -64,18 +71,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.card-figure {
-  @apply block;
-  @apply w-full;
-  @apply overflow-hidden;
-}
-
-.card-figure img {
-  @apply object-cover;
-  @apply object-center;
-  @apply h-64;
-  @apply w-full;
-}
-</style>

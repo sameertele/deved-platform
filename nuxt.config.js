@@ -226,7 +226,7 @@ export default {
         document.type = type
         document.locale = locale
 
-        const { time } = require('reading-time')(document.text)
+        const time = require('reading-time')(document.text)
         document.readingTime = time
         document.raw = document.text
 

@@ -6,9 +6,13 @@
         Don't worry you definitely typed the correct URL, it's the keyboard's
         fault.
       </p>
-      <NLink to="/" no-prefetch class="Vlt-btn Vlt-btn--app Vlt-btn--secondary">
+      <nuxt-link
+        to="/"
+        no-prefetch
+        class="Vlt-btn Vlt-btn--app Vlt-btn--secondary"
+      >
         Home page
-      </NLink>
+      </nuxt-link>
     </div>
 
     <div class="Vlt-col Blog-error">error-400.svg</div>

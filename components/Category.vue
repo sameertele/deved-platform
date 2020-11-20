@@ -1,11 +1,11 @@
 <template>
-  <NLink
+  <nuxt-link
     class="uppercase"
     :to="localePath(`/categories/${category.slug}`)"
     :style="`color: ${category.color ? category.color : '#000'}`"
   >
     &lt; {{ plural ? category.plural : category.name }} /&gt;
-  </NLink>
+  </nuxt-link>
 </template>
 
 <script>

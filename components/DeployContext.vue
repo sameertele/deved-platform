@@ -1,9 +1,5 @@
 <template>
   <div
-    v-if="
-      (env.netlifyContext || env.nodeEnv) && env.netlifyContext !== 'production'
-    "
-    class="w-screen py-1 text-white"
     :class="{
       'bg-green-600':
         !env.netlifyContext ||
@@ -13,7 +9,11 @@
     }"
   >
     <div
-      class="flex flex-row-reverse content-center max-w-screen-xl px-4 mx-auto space-2-4 sm:px-6 lg:px-8"
+      v-if="
+        (env.netlifyContext || env.nodeEnv) &&
+        env.netlifyContext !== 'production'
+      "
+      class="flex flex-row-reverse content-center max-w-screen-xl px-4 py-1 mx-auto text-white sm:px-6 lg:px-8"
     >
       <nuxt-link
         v-if="env.previewRoute"

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="overflow-hidden bg-white rounded-lg shadow"
+    class="overflow-hidden bg-white rounded-lg shadow-lg"
     vocab="http://schema.org/"
     typeof="Person"
   >

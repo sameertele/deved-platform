@@ -1,23 +1,25 @@
 <template>
-  <article class="overflow-hidden bg-white rounded-lg shadow">
-    <figure>
+  <article class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+    <figure class="flex-shrink-0">
       <nuxt-link :to="item.path" class="card-figure" :title="item.title">
         <img :src="item.image" :alt="item.title" />
       </nuxt-link>
     </figure>
-    <header class="px-4 my-4">
-      <h3 class="flex text-xl font-medium">
-        <NLink class="truncate" :to="item.path" :title="item.title">
-          {{ item.title }}
-        </NLink>
-      </h3>
-    </header>
-    <main class="flex flex-col px-4 sm:flex-row sm:space-x-1">
-      {{ item.description | truncate(120, '...') }}
-    </main>
-    <footer class="flex justify-between py-2 mx-4 mt-2 border-t text-grey-dark">
-      {{ meta | truncate(60, '...') }}
-    </footer>
+    <section class="flex flex-col justify-between flex-1 p-6 bg-white">
+      <header class="flex-1">
+        <h3 class="block mt-2 text-lg">
+          <nuxt-link :to="item.path" :title="item.title">
+            {{ item.title }}
+          </nuxt-link>
+        </h3>
+      </header>
+      <main class="mt-3 text-base text-grey-darker">
+        {{ item.description | truncate(120, '...') }}
+      </main>
+      <footer class="flex items-center mt-6 text-sm text-grey-dark">
+        {{ meta | truncate(60, '...') }}
+      </footer>
+    </section>
   </article>
 </template>
 
@@ -56,18 +58,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.card-figure {
-  @apply block;
-  @apply w-full;
-  @apply overflow-hidden;
-}
-
-.card-figure img {
-  @apply object-cover;
-  @apply object-center;
-  @apply h-64;
-  @apply w-full;
-}
-</style>

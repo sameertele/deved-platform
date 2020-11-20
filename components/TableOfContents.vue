@@ -102,10 +102,10 @@ li {
 }
 
 li.link--active {
-  @apply bg-grey-lighter;
+  @apply md:bg-grey-lighter;
 }
 
 li.link--active a {
-  @apply pl-4;
+  @apply md:pl-4;
 }
 </style>

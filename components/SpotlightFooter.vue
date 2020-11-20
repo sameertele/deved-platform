@@ -1,8 +1,5 @@
 <template>
-  <a
-    href="https://developer.nexmo.com/spotlight?utm_source=blog&utm_medium=deved&utm_campaign=spotlight"
-    target="_blank"
-  >
+  <nuxt-link to="/blog/spotlight">
     <img src="../assets/images/Spotlight_Banner.png" alt="" />
     <p>
       This author is a valued member of the Vonage Developer community and part
@@ -10,5 +7,5 @@
       Your tutorial will be published on our blog, and may be shared in our
       newsletter. Click to learn more.
     </p>
-  </a>
+  </nuxt-link>
 </template>

@@ -5,9 +5,9 @@
     typeof="BreadcrumbList"
   >
     <li class="inline-block" property="itemListElement" typeof="ListItem">
-      <NLink property="item" typeof="WebPage" to="/">
+      <nuxt-link property="item" typeof="WebPage" to="/">
         <span property="name">Vonage Learn</span>
-      </NLink>
+      </nuxt-link>
       <meta property="position" content="1" />
     </li>
     <li
@@ -17,11 +17,11 @@
       property="itemListElement"
       typeof="ListItem"
     >
-      <NLink property="item" typeof="WebPage" :to="crumb.path">
+      <nuxt-link property="item" typeof="WebPage" :to="crumb.path">
         <span property="name">{{
           $route.fullPath === crumb.path && title !== null ? title : crumb.title
         }}</span>
-      </NLink>
+      </nuxt-link>
       <meta property="position" :content="index + 2" />
     </li>
   </ol>

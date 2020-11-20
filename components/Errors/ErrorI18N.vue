@@ -10,17 +10,21 @@
       <h2>Alternative Translations</h2>
       <ol class="Vlt-list Vlt-list--simple">
         <li v-for="(translation, index) in translations" :key="index">
-          <NLink
+          <nuxt-link
             :to="localePath(translation.route, translation.locale)"
             class="Vlt-link"
             >({{ localeName(translation.locale) }})
-            {{ translation.title }}</NLink
+            {{ translation.title }}</nuxt-link
           >
         </li>
       </ol>
-      <NLink to="/" no-prefetch class="Vlt-btn Vlt-btn--app Vlt-btn--secondary">
+      <nuxt-link
+        to="/"
+        no-prefetch
+        class="Vlt-btn Vlt-btn--app Vlt-btn--secondary"
+      >
         Home page
-      </NLink>
+      </nuxt-link>
     </div>
 
     <div class="Vlt-col Blog-error">
