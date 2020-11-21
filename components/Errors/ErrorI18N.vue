@@ -43,9 +43,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Vlt-error-page .Blog-error {
-  margin-top: 100px;
-}
-</style>

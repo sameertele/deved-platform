@@ -20,26 +20,16 @@
           {{ author.name }}
         </nuxt-link>
       </h3>
-      <small v-if="author.team" class="Vlt-grey-dark" property="jobTitle">
+      <small v-if="author.team" property="jobTitle">
         {{ author.title || 'Vonage Team Member' }}
       </small>
-      <small
-        v-else-if="author.alumni"
-        class="Vlt-grey-dark"
-        property="jobTitle"
-      >
+      <small v-else-if="author.alumni" property="jobTitle">
         Vonage Alumni
       </small>
-      <small
-        v-else-if="author.spotlight"
-        class="Vlt-grey-dark"
-        property="jobTitle"
-      >
+      <small v-else-if="author.spotlight" property="jobTitle">
         Spotlight Author
       </small>
-      <small v-else class="Vlt-grey-dark" property="jobTitle">
-        Guest Writer
-      </small>
+      <small v-else property="jobTitle"> Guest Writer </small>
     </header>
     <main class="px-4 sm:flex-row sm:space-x-1">
       <p class="text-sm text-justify text-grey-dark" property="description">
@@ -54,26 +44,15 @@
     <footer class="py-2 mx-4 mt-2 border-t">
       <TwitterSocialButton
         :link="author.twitter ? `https://twitter.com/${author.twitter}` : ''"
-        class="Vlt-btn--small"
       />
-      <FacebookSocialButton
-        :link="author.facebook_url"
-        class="Vlt-btn--small"
-      />
-      <GitHubSocialButton :link="author.github_url" class="Vlt-btn--small" />
-      <StackOverflowSocialButton
-        :link="author.stackoverflow_url"
-        class="Vlt-btn--small"
-      />
-      <LinkedInSocialButton
-        :link="author.linkedin_url"
-        class="Vlt-btn--small"
-      />
-      <TwitchSocialButton :link="author.twitch_url" class="Vlt-btn--small" />
-      <YouTubeSocialButton :link="author.youtube_url" class="Vlt-btn--small" />
+      <FacebookSocialButton :link="author.facebook_url" />
+      <GitHubSocialButton :link="author.github_url" />
+      <StackOverflowSocialButton :link="author.stackoverflow_url" />
+      <LinkedInSocialButton :link="author.linkedin_url" />
+      <TwitchSocialButton :link="author.twitch_url" />
+      <YouTubeSocialButton :link="author.youtube_url" />
       <WebsiteSocialButton
         :link="author.website_url || localePath(`/authors/${author.username}`)"
-        class="Vlt-btn--small"
       />
     </footer>
   </div>

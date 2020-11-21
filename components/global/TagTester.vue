@@ -2,7 +2,7 @@
   <div>
     <label for="title-maker">
       Test your tag
-      <small class="Vlt-grey-dark">(by writing it in the box)</small>
+      <small>(by writing it in the box)</small>
     </label>
     <div class="flex h-12 border border-gray-500 rounded-lg">
       <input id="tag-tester" v-model="testTag" type="text" class="tag-tester" />

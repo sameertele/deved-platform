@@ -35,11 +35,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.Category-hero >>> .Blog-hero__content h3 .Vlt-badge {
-  font-size: 21px;
-  padding: 0 4px 0 0;
-  line-height: 1;
-}
-</style>
