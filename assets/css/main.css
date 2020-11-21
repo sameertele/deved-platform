@@ -132,7 +132,8 @@ select.button {
 }
 
 .index-section > h2 {
-  @apply my-4;
+  @apply my-6;
+  @apply md:my-10;
   @apply text-sm;
   @apply font-light;
   @apply text-center;
@@ -141,12 +142,6 @@ select.button {
   @apply relative;
   @apply z-20;
   @apply tracking-widest;
-}
-
-@screen md {
-  .index-section > h2 {
-    @apply my-10;
-  }
 }
 
 .index-section > h2:before {

@@ -49,8 +49,6 @@
             <ul
               slot-scope="{
                 currentRefinement,
-                nbPages,
-                pages,
                 isFirstPage,
                 isLastPage,
                 refine,
@@ -137,17 +135,12 @@ export default {
   @apply duration-150;
   @apply text-sm;
   @apply leading-5;
+  @apply md:text-base;
+  @apply md:leading-normal;
 }
 
 .search-input:focus {
   @apply outline-none;
-}
-
-@screen md {
-  .search-input {
-    @apply text-base;
-    @apply leading-normal;
-  }
 }
 
 .button--pagination {
