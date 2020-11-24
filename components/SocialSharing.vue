@@ -1,9 +1,7 @@
 <template>
-  <section class="text-center">
+  <section>
     <h4>Share This Post</h4>
-    <ul
-      class="flex flex-wrap justify-center w-40 gap-2 mx-auto mt-2 text-xs list-none"
-    >
+    <ul class="flex flex-wrap gap-2 mt-2 text-xs list-none">
       <li>
         <ShareNetwork
           class="cursor-pointer button button--round button--small button--facebook"
@@ -136,3 +134,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.max-w-40 {
+  max-width: 10rem;
+}
+</style>
